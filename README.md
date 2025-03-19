@@ -4,7 +4,7 @@
 This is a personal portfolio website showcasing my skills, projects, and contact information. It is built using HTML, CSS, and JavaScript, with animations and interactive elements.
 
 ## Features
-- Responsive design for all devices
+- Responsive design for all devices.
 - Animated sections and smooth scrolling
 - Contact form with EmailJS integration
 - Project showcase with descriptions and links
