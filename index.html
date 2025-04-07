@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jablay Noor Rahman | Portfolio</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
@@ -198,88 +199,89 @@
     <!-- Projects Section -->
     <section id="projects" class="projects-section">
         <h2 class="section-title">My Projects</h2>
-        <div class="projects-grid">
-            <div class="project-card animate-card">
-                <div class="project-content">
-                    <img class="projectimg" src="./Images/project1.png" alt="project-img">
-                    <h3>EduSync: Student Administration Platform</h3>
-                    <p>A comprehensive platform designed to streamline administrative tasks and provide a unified interface for students, faculty, parents, and administrators within educational institutions.</p>
-                    <p class="tech-stack">PHP • MySQL • HTML • CSS • JavaScript • XAMPP</p>
-                    <div class="project-links">
-                        <a href="https://github.com/omijr123/dbms-lab" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+        <div class="swiper projects-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide project-card animate-card">
+                    <div class="project-content">
+                        <img class="projectimg" src="./Images/project1.png" alt="project-img">
+                        <h3>EduSync: Student Administration Platform</h3>
+                        <p>A comprehensive platform designed to streamline administrative tasks and provide a unified interface for students, faculty, parents, and administrators within educational institutions.</p>
+                        <p class="tech-stack">PHP • MySQL • HTML • CSS • JavaScript • XAMPP</p>
+                        <div class="project-links">
+                            <a href="https://github.com/omijr123/dbms-lab" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide project-card animate-card delay-100">
+                    <div class="project-content">
+                        <img class="projectimg" src="./Images/project2.png" alt="project-img">
+                        <h3>Khuda Lagse: Food Delivery Platform</h3>
+                        <p>An online platform aimed at connecting customers with local restaurants and food vendors, providing them with a convenient and user-friendly way to order food and get it delivered to their doorsteps.</p>
+                        <p class="tech-stack">Java Swing/FX • MySQL</p>
+                        <div class="project-links">
+                            <a href="https://github.com/omijr123/OnlineFoodDelivery-Service" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide project-card animate-card delay-200">
+                    <div class="project-content">
+                        <img class="projectimg" src="./Images/project3.jpg" alt="project-img">
+                        <h3>Rahman Fast Food Restaurant Management</h3>
+                        <p>A comprehensive shell script for managing orders, customer interactions, and administrative tasks for a fictional restaurant. Developed as part of an Operating System course project.</p>
+                        <p class="tech-stack">Shell Script • Linux</p>
+                        <div class="project-links">
+                            <a href="https://github.com/omijr123/Operating-System-Linux-Project-" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide project-card animate-card delay-300">
+                    <div class="project-content">
+                        <img class="projectimg" src="./Images/project4.jpg" alt="Canvas Painting App">
+                        <h3>Canvas Painting App</h3>
+                        <p>An Android application that allows users to draw on a digital canvas, select drawing colors (Red, Blue, Yellow, Black), erase, and save their artwork in JPG/PNG format directly to the gallery.</p>
+                        <p class="tech-stack">Java • Android SDK • Canvas API</p>
+                        <div class="project-links">
+                            <a href="https://github.com/omijr123/CanvasPainting" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide project-card animate-card delay-400">
+                    <div class="project-content">
+                        <img class="projectimg" src="./Images/project5.png" alt="To-Do List App">
+                        <h3>Simple To-Do List Android App</h3>
+                        <p>A clean task manager with remaining/completed sections. Users can add tasks and check to complete them. Built with Java in Android Studio using ListView and custom adapters.</p>
+                        <p class="tech-stack">Java • Android SDK • ListView</p>
+                        <div class="project-links">
+                            <a href="https://github.com/omijr123/ToDoList" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide project-card animate-card delay-500">
+                    <div class="project-content">
+                        <img class="projectimg" src="./Images/project6.png" alt="Smoke Detector System">
+                        <h3>Automatic Smoke Detector and Fire Prevention System</h3>
+                        <p>A system that detects smoke and triggers preventive actions, such as opening doors, activating sprinklers, and shutting down electrical systems to prevent fire disasters.</p>
+                        <p class="tech-stack">Embedded Systems • IoT • Sensors</p>
+                        <div class="project-links">
+                            <a href="https://github.com/omijr123/Automatic-Smoke-Detector-and-Fire-Prevention-System" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-slide project-card animate-card delay-600">
+                    <div class="project-content">
+                        <img class="projectimg" src="./Images/project7.png" alt="Parking Management System">
+                        <h3>Parking Management System</h3>
+                        <p>A Java-based parking management system that allows users to reserve spots, check in/out vehicles, and track availability. Features OOP principles and file I/O for data storage.</p>
+                        <p class="tech-stack">Java • OOP • File I/O</p>
+                        <div class="project-links">
+                            <a href="https://github.com/omijr123/PARKINGLOT" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="project-card animate-card delay-100">
-                <div class="project-content">
-                    <img class="projectimg" src="./Images/project2.png" alt="project-img">
-                    <h3>Khuda Lagse: Food Delivery Platform</h3>
-                    <p>An online platform aimed at connecting customers with local restaurants and food vendors, providing them with a convenient and user-friendly way to order food and get it delivered to their doorsteps.</p>
-                    <p class="tech-stack">Java Swing/FX • MySQL</p>
-                    <div class="project-links">
-                        <a href="https://github.com/omijr123/OnlineFoodDelivery-Service" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="project-card animate-card delay-200">
-                <div class="project-content">
-                    <img class="projectimg" src="./Images/project3.jpg" alt="project-img">
-                    <h3>Rahman Fast Food Restaurant Management</h3>
-                    <p>A comprehensive shell script for managing orders, customer interactions, and administrative tasks for a fictional restaurant. Developed as part of an Operating System course project.</p>
-                    <p class="tech-stack">Shell Script • Linux</p>
-                    <div class="project-links">
-                        <a href="https://github.com/omijr123/Operating-System-Linux-Project-" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- New Project: Canvas Painting -->
-            <div class="project-card animate-card delay-300">
-                <div class="project-content">
-                    <img class="projectimg" src="./Images/project4.jpg" alt="Canvas Painting App">
-                    <h3>Canvas Painting App</h3>
-                    <p>An Android application that allows users to draw on a digital canvas, select drawing colors (Red, Blue, Yellow, Black), erase, and save their artwork in JPG/PNG format directly to the gallery.</p>
-                    <p class="tech-stack">Java • Android SDK • Canvas API</p>
-                    <div class="project-links">
-                        <a href="https://github.com/omijr123/CanvasPainting" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- New Project: To-Do List -->
-            <div class="project-card animate-card delay-400">
-                <div class="project-content">
-                    <img class="projectimg" src="./Images/project5.png" alt="To-Do List App">
-                    <h3>Simple To-Do List Android App</h3>
-                    <p>A clean task manager with remaining/completed sections. Users can add tasks and check to complete them. Built with Java in Android Studio using ListView and custom adapters.</p>
-                    <p class="tech-stack">Java • Android SDK • ListView</p>
-                    <div class="project-links">
-                        <a href="https://github.com/omijr123/ToDoList" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- New Project: Smoke Detector -->
-            <div class="project-card animate-card delay-500">
-                <div class="project-content">
-                    <img class="projectimg" src="./Images/project6.png" alt="Smoke Detector System">
-                    <h3>Automatic Smoke Detector and Fire Prevention System</h3>
-                    <p>A system that detects smoke and triggers preventive actions, such as opening doors, activating sprinklers, and shutting down electrical systems to prevent fire disasters.</p>
-                    <p class="tech-stack">Embedded Systems • IoT • Sensors</p>
-                    <div class="project-links">
-                        <a href="https://github.com/omijr123/Automatic-Smoke-Detector-and-Fire-Prevention-System" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
-            <!-- New Project: Parking Lot -->
-            <div class="project-card animate-card delay-600">
-                <div class="project-content">
-                    <img class="projectimg" src="./Images/project7.png" alt="Parking Management System">
-                    <h3>Parking Management System</h3>
-                    <p>A Java-based parking management system that allows users to reserve spots, check in/out vehicles, and track availability. Features OOP principles and file I/O for data storage.</p>
-                    <p class="tech-stack">Java • OOP • File I/O</p>
-                    <div class="project-links">
-                        <a href="https://github.com/omijr123/PARKINGLOT" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                    </div>
-                </div>
-            </div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
@@ -350,6 +352,8 @@
         </div>
     </footer>
 </body>
+<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
 <script>
     function sendEmail(e) {
         e.preventDefault();
