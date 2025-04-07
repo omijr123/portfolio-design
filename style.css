@@ -263,6 +263,115 @@ nav ul li {
     background-color: var(--secondary-color);
 }
 
+
+/* Experience Section */
+.experience-section {
+    background-color: white;
+}
+
+.experience-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.job-card {
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.job-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.job-info h3 {
+    font-size: 1.4rem;
+    color: #0366d6;
+    margin-bottom: 0.3rem;
+}
+
+.job-info h4 {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.job-date {
+    color: #777;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+.job-description {
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.job-highlights {
+    padding-left: 1.5rem;
+}
+
+.job-highlights li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.job-highlights li::before {
+    content: "•";
+    color: #0366d6;
+    font-weight: bold;
+    position: absolute;
+    left: -1rem;
+}
+
+/* Education Section */
+.education-section {
+    background-color: #f8f9fa;
+}
+
+.education-container {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.education-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.education-card h3 {
+    font-size: 1.4rem;
+    color: #0366d6;
+    margin-bottom: 0.3rem;
+}
+
+.education-card h4 {
+    font-size: 1.1rem;
+    color: #555;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.education-date {
+    color: #777;
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
 /* Skills Section */
 .skills-section {
     background-color: var(--gray-bg);
@@ -336,8 +445,8 @@ nav ul li {
 }
 .projectimg {
     width: 100%;
-    height: 100%;
-    object-fit: cover;
+    height: 250px;
+    object-fit: contain;
     border-radius: var(--border-radius);
 }
 
