@@ -5,15 +5,2498 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jablay Noor Rahman | Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
-    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         (function() {
-            // Replace 'YOUR_PUBLIC_KEY' with your actual EmailJS public key
             emailjs.init('O1T9i9euIrwxrXkUg');
         })();
     </script>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --dark-bg: #2c3e50;
+            --light-text: #fff;
+            --gray-bg: #f5f5f5;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --cert-blue: #1a73e8;
+            --cert-purple: #6a1b9a;
+            --cert-green: #2e7d32;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            min-height: 100vh;
+            font-weight: 400;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-speed) ease;
+        }
+
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--secondary-color);
+            position: relative;
+            letter-spacing: -0.5px;
+            text-transform: capitalize;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--light-text);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-text);
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .header.scrolled {
+            padding: 10px 50px;
+            background-color: rgba(44, 62, 80, 0.95);
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            position: relative;
+            padding: 5px 0;
+            color: var(--light-text);
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            bottom: 0;
+            left: 0;
+            transition: width var(--transition-speed) ease;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.9)), url('./Images/heroimage.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--light-text);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero-content h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+            font-weight: 800;
+            letter-spacing: -1px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+        }
+
+        .hero-content p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.6rem;
+            color: var(--primary-color);
+            margin-bottom: 40px;
+            font-weight: 500;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+        }
+
+        .hero-buttons {
+            margin-top: 30px;
+        }
+
+        /* About Section - Ultra Enhanced */
+        .about-section {
+            background: linear-gradient(135deg, 
+                #667eea 0%, #764ba2 15%, #ff9a9e 30%, #fecfef 45%, 
+                #fecfef 55%, #ff9a9e 70%, #764ba2 85%, #667eea 100%);
+            background-size: 600% 600%;
+            animation: gradientShift 25s ease infinite;
+            position: relative;
+            overflow: hidden;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 60%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.06) 50%, transparent 70%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="150" cy="150" r="2.5" fill="rgba(255,255,255,0.08)"/><circle cx="100" cy="20" r="1.5" fill="rgba(255,255,255,0.06)"/><circle cx="20" cy="120" r="2" fill="rgba(255,255,255,0.09)"/><circle cx="170" cy="80" r="1.8" fill="rgba(255,255,255,0.07)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .about-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .about-section .section-title {
+            color: white;
+            text-shadow: 3px 3px 10px rgba(0,0,0,0.4);
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            padding-top: 60px;
+            letter-spacing: -1px;
+        }
+
+        .about-section .section-title::after {
+            content: '';
+            position: absolute;
+            width: 150px;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                rgba(255, 255, 255, 0.8) 0%, 
+                rgba(255, 255, 255, 0.4) 50%, 
+                rgba(255, 255, 255, 0.8) 100%);
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 3px;
+        }
+
+        .about-container {
+            display: flex;
+            max-width: 1400px;
+            margin: 0 auto;
+            gap: 80px;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+            padding: 0 20px 80px 20px;
+        }
+
+        .profile-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .profile-image::before {
+            content: '';
+            position: absolute;
+            top: -30px;
+            left: -30px;
+            right: -30px;
+            bottom: -30px;
+            background: linear-gradient(45deg, 
+                rgba(255, 255, 255, 0.2) 0%, 
+                rgba(255, 255, 255, 0.1) 25%, 
+                rgba(255, 255, 255, 0.15) 50%, 
+                rgba(255, 255, 255, 0.1) 75%, 
+                rgba(255, 255, 255, 0.2) 100%);
+            border-radius: 50%;
+            z-index: -1;
+            opacity: 0.8;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.8; }
+            50% { transform: scale(1.05); opacity: 1; }
+        }
+
+        .profile-image img {
+            width: 100%;
+            max-width: 380px;
+            border-radius: 50%;
+            border: 8px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.3),
+                inset 0 0 30px rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            z-index: 1;
+            backdrop-filter: blur(5px);
+        }
+
+        .profile-image img:hover {
+            transform: scale(1.08) rotate(3deg);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.4),
+                inset 0 0 40px rgba(255, 255, 255, 0.2);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .about-text {
+            flex: 2;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-text p {
+            margin-bottom: 30px;
+            font-size: 1.25rem;
+            line-height: 2;
+            color: #2c3e50;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
+            text-align: justify;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 35px;
+            border-radius: 25px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 
+                0 15px 35px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-text p::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                #667eea 0%, #764ba2 25%, #ff9a9e 50%, #fecfef 75%, #667eea 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .about-text p:hover::before {
+            transform: scaleX(1);
+        }
+
+        .about-text p:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 
+                0 25px 50px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.7);
+            background: rgba(255, 255, 255, 0.98);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .highlight {
+            color: #667eea;
+            font-weight: 800;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            position: relative;
+            padding: 2px 4px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .highlight::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(255, 154, 158, 0.1) 100%);
+            border-radius: 6px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .highlight:hover::before {
+            opacity: 1;
+        }
+
+        .highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea 0%, #764ba2 50%, #ff9a9e 100%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .highlight:hover::after {
+            opacity: 1;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 25px;
+            margin-top: 45px;
+            justify-content: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .social-icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, 
+                rgba(255, 255, 255, 0.25) 0%, 
+                rgba(255, 255, 255, 0.1) 100%);
+            color: white;
+            border-radius: 50%;
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            box-shadow: 
+                0 10px 30px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .social-icon::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.4), 
+                transparent);
+            transition: left 0.6s ease;
+        }
+
+        .social-icon:hover::before {
+            left: 100%;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-10px) scale(1.15);
+            background: linear-gradient(135deg, 
+                rgba(102, 126, 234, 0.9) 0%, 
+                rgba(118, 75, 162, 0.9) 50%,
+                rgba(255, 154, 158, 0.9) 100%);
+            box-shadow: 
+                0 20px 50px rgba(0, 0, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .social-icon i {
+            font-size: 1.5rem;
+            position: relative;
+            z-index: 2;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover i {
+            transform: scale(1.2);
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
+        }
+        /* Experience Section - Enhanced */
+        .experience-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .experience-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="50" cy="80" r="1" fill="rgba(255,255,255,0.12)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .experience-section .section-title {
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .experience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FECA57 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .job-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .job-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .job-date {
+            color: #7f8c8d;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .job-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            font-size: 1.05rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .job-highlights {
+            padding-left: 1.5rem;
+        }
+
+        .job-highlights li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            color: #34495e;
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .job-highlights li::before {
+            content: "✨";
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            font-size: 1.1rem;
+        }
+
+        /* Education Section - Enhanced */
+        .education-section {
+            background: linear-gradient(135deg, #2E8B57 0%, #3CB371 25%, #20B2AA 50%, #4682B4 75%, #6495ED 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .education-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 70% 60%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="10,10 20,5 30,10 20,15" fill="rgba(255,255,255,0.06)"/><polygon points="70,30 80,25 90,30 80,35" fill="rgba(255,255,255,0.04)"/><polygon points="40,70 50,65 60,70 50,75" fill="rgba(255,255,255,0.08)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .education-section .section-title {
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .education-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .education-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .education-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700 0%, #FF6347 25%, #32CD32 50%, #1E90FF 75%, #9370DB 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .education-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .education-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .education-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .education-card h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #e74c3c;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .education-date {
+            color: #7f8c8d;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .education-card p {
+            color: #2c3e50;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        /* Skills Section - Ultra Enhanced */
+        .skills-section {
+            background: linear-gradient(135deg, 
+                #667eea 0%, #764ba2 12%, #6a11cb 25%, #2575fc 38%, 
+                #667eea 50%, #764ba2 62%, #6a11cb 75%, #2575fc 88%, #667eea 100%);
+            background-size: 600% 600%;
+            animation: gradientShift 30s ease infinite;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
+                linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.04) 50%, transparent 75%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="40" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="160" cy="160" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="100" cy="30" r="1.8" fill="rgba(255,255,255,0.09)"/><circle cx="30" cy="140" r="2.2" fill="rgba(255,255,255,0.07)"/><circle cx="170" cy="60" r="1.6" fill="rgba(255,255,255,0.11)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .skills-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="skillsGrid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23skillsGrid)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .skills-section .section-title {
+            color: white;
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skills-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            font-weight: 800;
+            text-align: center;
+            width: 100%;
+        }
+
+        .skill-category h3::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.8) 0%, 
+                rgba(255,255,255,0.4) 50%, 
+                rgba(255,255,255,0.8) 100%);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 5px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-name {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-bar {
+            height: 16px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.1),
+                0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.6), 
+                transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .skill-percentage {
+            position: absolute;
+            right: 15px;
+            top: -45px;
+            font-size: 16px;
+            font-weight: 800;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            padding: 8px 12px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            text-shadow: none;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-item:hover .skill-percentage {
+            opacity: 1;
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .skill-graph-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skill-graph {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-graph::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                #667eea 0%, #764ba2 25%, #6a11cb 50%, #2575fc 75%, #667eea 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-graph:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-graph:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .graph-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #667eea;
+            text-align: center;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .graph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 20px;
+        }
+
+        .graph-item {
+            text-align: center;
+            padding: 25px 20px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graph-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(102, 126, 234, 0.1), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+
+        .graph-item:hover::before {
+            left: 100%;
+        }
+
+        .graph-item:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .graph-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+            transition: all 0.4s ease;
+        }
+
+        .graph-item:hover i {
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .graph-item p {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        /* Certifications Section */
+        .certifications-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certifications-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(120, 119, 240, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 119, 120, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 200, 255, 0.2) 0%, transparent 50%);
+            opacity: 0.6;
+            z-index: 0;
+        }
+
+        .certifications-section .section-title {
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .certifications-slider {
+            position: relative;
+            overflow: visible;
+            padding: 0 70px; /* Match projects section padding */
+            max-width: 1200px;
+            margin: 0 auto;
+            z-index: 2;
+        }
+
+        .certifications-slider .swiper-slide {
+            height: auto;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.8;
+            transform: scale(0.95);
+        }
+
+        .certifications-slider .swiper-slide-active {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+
+        .certifications-slider .swiper-slide-next,
+        .certifications-slider .swiper-slide-prev {
+            opacity: 0.9;
+            transform: scale(0.98);
+        }
+
+        .certification-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            margin: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .certification-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                #FF6B6B 0%, 
+                #4ECDC4 25%, 
+                #45B7D1 50%, 
+                #96CEB4 75%, 
+                #FECA57 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .certification-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .certification-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .cert-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            margin-bottom: 0;
+            transition: transform 0.3s ease;
+        }
+
+        .certification-card:hover .cert-img {
+            transform: scale(1.05);
+        }
+
+        .cert-header {
+            padding: 25px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.2), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cert-header:hover::before {
+            left: 100%;
+        }
+
+        .cert-header.purple {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .cert-header.green {
+            background: linear-gradient(135deg, #4ECDC4 0%, #44A08D 100%);
+        }
+        
+        .cert-header.orange {
+            background: linear-gradient(135deg, #FFB347 0%, #FF8C69 100%);
+        }
+
+        .cert-header h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-header p {
+            opacity: 0.9;
+            font-size: 0.95rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-content {
+            padding: 35px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+
+        .cert-issuer {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            background: rgba(248, 249, 250, 0.8);
+            padding: 20px;
+            margin: -25px -25px 20px -25px;
+        }
+
+        .cert-issuer img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+            background: #f0f0f0;
+            padding: 5px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .cert-issuer-info h4 {
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+            color: #2d3748;
+            font-weight: 600;
+        }
+
+        .cert-issuer-info p {
+            color: #666;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .cert-details {
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .cert-details p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            color: #4a5568;
+            font-size: 0.95rem;
+        }
+
+        .skills-learned {
+            margin-bottom: 25px;
+        }
+
+        .skills-learned h4 {
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+            font-size: 1.1rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+        }
+
+        .skills-learned h4::before {
+            content: '🎯';
+            margin-right: 8px;
+            font-size: 1.2rem;
+        }
+
+        .skills-learned ul {
+            padding-left: 0;
+            list-style: none;
+        }
+
+        .skills-learned li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 25px;
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .skills-learned li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .cert-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 25px;
+            border-top: 1px solid rgba(0,0,0,0.05);
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            margin: 0 -25px -25px -25px;
+        }
+
+        .cert-id {
+            font-size: 0.85rem;
+            color: #6c757d;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 140px;
+            font-weight: 500;
+        }
+
+        .cert-link {
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: white;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.3), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+
+        .cert-link:hover::before {
+            left: 100%;
+        }
+        
+        .cert-link.disabled {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            cursor: not-allowed;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .cert-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+       /* Projects Section - Enhanced */
+        .projects-section {
+            background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FECA57 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 30s ease infinite;
+            color: var(--light-text);
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .projects-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.06) 50%, transparent 60%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="10" y="10" width="15" height="15" fill="rgba(255,255,255,0.03)" rx="2"/><rect x="75" y="30" width="12" height="12" fill="rgba(255,255,255,0.05)" rx="2"/><rect x="40" y="70" width="18" height="18" fill="rgba(255,255,255,0.04)" rx="2"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .projects-section .section-title {
+            color: var(--light-text);
+            margin-bottom: 60px;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .projects-section .section-title::after {
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
+        }
+
+        .projects-slider {
+            position: relative;
+            overflow: visible;
+            padding: 0 70px; /* Add padding to make room for navigation buttons */
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .projectimg {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: var(--border-radius);
+            margin-bottom: 20px;
+        }
+
+        .projects-slider .swiper-slide {
+            height: auto;
+            transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            opacity: 0.8;
+            transform: scale(0.95);
+        }
+
+        .projects-slider .swiper-slide-active {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+        }
+
+        .projects-slider .swiper-slide-next,
+        .projects-slider .swiper-slide-prev {
+            opacity: 0.9;
+            transform: scale(0.98);
+        }
+
+        .project-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            height: 100%;
+            margin: 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .project-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(52, 152, 219, 0.3);
+        }
+        
+        .project-content {
+            padding: 35px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 2;
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 18px;
+            font-size: 1.6rem;
+            font-weight: 700;
+            line-height: 1.3;
+        }
+
+        .project-card p {
+            margin-bottom: 25px;
+            color: var(--text-color);
+            flex-grow: 1;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .tech-stack {
+            font-size: 0.95rem;
+            color: #666;
+            margin-bottom: 25px;
+            font-style: italic;
+            padding: 12px 16px;
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 10px;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .project-links {
+            display: flex;
+            justify-content: flex-start;
+            gap: 18px;
+            margin-top: auto;
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+            color: var(--light-text);
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+        }
+
+        .project-link:hover {
+            background: linear-gradient(135deg, var(--secondary-color), #34495e);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+        }
+
+        .project-link i {
+            margin-left: 8px;
+        }
+
+        /* Swiper Navigation & Pagination */
+        .swiper-button-next, .swiper-button-prev {
+            color: var(--primary-color) !important;
+            background: rgba(255, 255, 255, 0.9);
+            width: 50px !important;
+            height: 50px !important;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .swiper-button-next:after, .swiper-button-prev:after {
+            font-size: 1.2rem !important;
+            font-weight: bold;
+        }
+
+        .swiper-button-next:hover, .swiper-button-prev:hover {
+            background: var(--primary-color) !important;
+            color: white !important;
+            transform: scale(1.1);
+        }
+        
+        .swiper-pagination-bullet {
+            background: var(--primary-color) !important;
+            opacity: 0.5;
+        }
+        
+        .swiper-pagination-bullet-active {
+            opacity: 1;
+        }
+        
+        /* Advanced Project Slider Styles */
+        .projects-slider .swiper-button-next,
+        .projects-slider .swiper-button-prev {
+            color: #ffffff !important;
+            width: 60px !important;
+            height: 60px !important;
+            margin-top: -30px !important;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4) !important;
+            z-index: 10 !important;
+            opacity: 0.9 !important;
+            border: 3px solid rgba(255, 255, 255, 0.3) !important;
+        }
+
+        .projects-slider .swiper-button-next:hover,
+        .projects-slider .swiper-button-prev:hover {
+            background: linear-gradient(135deg, var(--secondary-color), #34495e) !important;
+            transform: scale(1.15) !important;
+        }
+
+        .projects-slider .swiper-pagination {
+            position: relative !important;
+            margin-top: 40px !important;
+            text-align: center !important;
+        }
+
+        .projects-slider .swiper-pagination-bullet {
+            background: linear-gradient(135deg, var(--primary-color), #2980b9) !important;
+            opacity: 0.4 !important;
+            width: 14px !important;
+            height: 14px !important;
+        }
+
+        .projects-slider .swiper-pagination-bullet-active {
+            background: linear-gradient(135deg, var(--secondary-color), #34495e) !important;
+            opacity: 1 !important;
+            transform: scale(1.4) !important;
+        }
+
+        /* Advanced Certifications Slider Styles */
+        .certifications-slider .swiper-button-next,
+        .certifications-slider .swiper-button-prev {
+            color: #ffffff !important;
+            width: 60px !important;
+            height: 60px !important;
+            margin-top: -30px !important;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9) !important;
+            border-radius: 50% !important;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4) !important;
+            z-index: 10 !important;
+            opacity: 0.9 !important;
+            border: 3px solid rgba(255, 255, 255, 0.3) !important;
+        }
+
+        .certifications-slider .swiper-button-next:hover,
+        .certifications-slider .swiper-button-prev:hover {
+            background: linear-gradient(135deg, var(--secondary-color), #34495e) !important;
+            transform: scale(1.15) !important;
+        }
+
+        .certifications-slider .swiper-pagination {
+            position: relative !important;
+            margin-top: 40px !important;
+            text-align: center !important;
+        }
+
+        .certifications-slider .swiper-pagination-bullet {
+            background: linear-gradient(135deg, var(--primary-color), #2980b9) !important;
+            opacity: 0.4 !important;
+            width: 14px !important;
+            height: 14px !important;
+        }
+
+        .certifications-slider .swiper-pagination-bullet-active {
+            background: linear-gradient(135deg, var(--secondary-color), #34495e) !important;
+            opacity: 1 !important;
+            transform: scale(1.4) !important;
+        }
+
+        /* Volunteering Section - Enhanced */
+        .volunteering-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #FF7F50 0%, #FF6347 25%, #DC143C 50%, #B22222 75%, #8B0000 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 35s ease infinite;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .volunteering-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 L30,15 L40,20 L35,30 L25,30 Z" fill="rgba(255,255,255,0.04)"/><path d="M70,40 L80,35 L90,40 L85,50 L75,50 Z" fill="rgba(255,255,255,0.06)"/><path d="M45,70 L55,65 L65,70 L60,80 L50,80 Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .volunteering-section .section-title {
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volunteering-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volunteering-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volunteering-intro p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .volunteering-hero-img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .volunteering-hero-img:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        .volunteering-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .volunteer-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 35px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .volunteer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FFD700 0%, #FF6347 25%, #FF69B4 50%, #00CED1 75%, #98FB98 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .volunteer-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .volunteer-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .volunteer-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .volunteer-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            margin: 0;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .volunteer-type {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .volunteer-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .volunteer-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .volunteer-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .volunteer-content strong {
+            color: #ffd700;
+        }
+
+        .volunteering-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .stat-item h4 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            color: #ffd700;
+            font-weight: 700;
+        }
+
+        .stat-item p {
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .volunteering-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .volunteer-card {
+                padding: 20px;
+            }
+
+            .volunteer-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .volunteer-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .volunteering-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat-item h4 {
+                font-size: 2.5rem;
+            }
+
+            .volunteering-hero-img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .volunteering-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .volunteer-card {
+                padding: 15px;
+            }
+        }
+
+        /* Contact Section - Enhanced */
+        .contact-section {
+            background: linear-gradient(135deg, #8360c3 0%, #2ebf91 25%, #3742fa 50%, #2ed573 75%, #5352ed 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 25s ease infinite;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 70% 70%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.05) 50%, transparent 60%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="75" cy="50" r="1.5" fill="rgba(255,255,255,0.06)"/><circle cx="50" cy="80" r="2.5" fill="rgba(255,255,255,0.04)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .contact-section .section-title {
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 50px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-form {
+            flex: 2;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            padding: 50px;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8360c3 0%, #2ebf91 25%, #3742fa 50%, #2ed573 75%, #5352ed 100%);
+        }
+
+        .form-group {
+            margin-bottom: 30px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 700;
+            color: var(--secondary-color);
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1rem;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e9ecef;
+            border-radius: 15px;
+            font-family: 'Inter', sans-serif;
+            font-size: 1rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            background: #f8f9fa;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            background: white;
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1), 0 5px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .btn-submit {
+            padding: 15px 35px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
+            color: var(--light-text);
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: 700;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-family: 'Poppins', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-submit::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-submit:hover::before {
+            left: 100%;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, #34495e 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-info {
+            flex: 1;
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(15px);
+            color: var(--light-text);
+            padding: 50px;
+            border-radius: 20px;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #8360c3 0%, #2ebf91 25%, #3742fa 50%, #2ed573 75%, #5352ed 100%);
+        }
+
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            margin-bottom: 35px;
+            color: var(--primary-color);
+            position: relative;
+            padding-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, rgba(52, 152, 219, 0.5) 100%);
+            bottom: 0;
+            left: 0;
+        }
+
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            margin-top: 25px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-item i {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-top: 5px;
+            padding: 10px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
+        }
+
+        .contact-item p {
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+
+        .contact-item a {
+            color: var(--primary-color);
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+
+        .contact-item a:hover {
+            color: white;
+            text-decoration: underline;
+        }
+        
+        .map-title {
+            margin-top: 30px;
+            font-size: 1.3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Animation Classes */
+        .animate-text {
+            animation: colorChange 5s infinite alternate;
+        }
+
+        @keyframes colorChange {
+            0% { color: var(--primary-color); }
+            50% { color: var(--accent-color); }
+            100% { color: var(--primary-color); }
+        }
+
+        .animate-slide-down {
+            animation: slideDown 1s ease forwards;
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+
+        .animate-slide-up {
+            animation: slideUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .animate-slide-right {
+            opacity: 0;
+            transform: translateX(-50px);
+            animation: slideRight 1s ease forwards;
+        }
+
+        .animate-slide-left {
+            opacity: 0;
+            transform: translateX(50px);
+            animation: slideLeft 1s ease forwards;
+        }
+
+        .animate-fade-in {
+            opacity: 0;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .animate-card {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        /* Delay Classes */
+        .delay-100 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-200 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-300 {
+            animation-delay: 0.3s;
+        }
+
+        .delay-400 {
+            animation-delay: 0.4s;
+        }
+        
+        .delay-500 {
+            animation-delay: 0.5s;
+        }
+        
+        .delay-600 {
+            animation-delay: 0.6s;
+        }
+        
+        .delay-700 {
+            animation-delay: 0.7s;
+        }
+        
+        .delay-800 {
+            animation-delay: 0.8s;
+        }
+
+
+        /* Keyframes */
+        @keyframes slideDown {
+            0% {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes slideRight {
+            0% {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideLeft {
+            0% {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Intersection Observer Animation Triggers */
+        .skill-progress {
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 1s ease;
+        }
+
+        /* Media Queries */
+        @media (max-width: 992px) {
+            .about-container,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .skills-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            nav ul {
+                margin-top: 10px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 10px 10px;
+            }
+            
+            .hero-content h2 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .profile-image {
+                margin-bottom: 30px;
+            }
+            
+            .certifications-slider,
+            .projects-slider {
+                padding: 0 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+                align-items: center;
+            }
+            
+            .btn-secondary {
+                margin-left: 0;
+            }
+            
+            .project-content, .cert-content {
+                padding: 25px;
+            }
+
+            .project-card h3, .cert-header h3 {
+                font-size: 1.4rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header Section with Navigation -->
@@ -25,9 +2508,11 @@
             <ul>
                 <li><a href="#home" class="nav-link">Home</a></li>
                 <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
+                 <li><a href="#experience" class="nav-link">Experience</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#volunteering" class="nav-link">Volunteering</a></li>
+                <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
@@ -54,145 +2539,1391 @@
                 <img src="./Images/OMI FB PICTURE -01.jpg" alt="Jablay Noor Rahman Profile Picture">
             </div>
             <div class="about-text">
-                <p class="animate-slide-right">Hello! I'm <span class="highlight">Jablay Noor Rahman</span>, a 3rd year Information and Communication Technology student at <span class="highlight">Bangladesh University of Professionals (BUP)</span>. I am a passionate developer with expertise in web development and software engineering. I enjoy creating responsive and user-friendly applications that solve real-world problems.</p>
-                <p class="animate-slide-right delay-200">I'm experienced in various technologies including PHP, MySQL, Java, HTML, CSS, and JavaScript. My focus is on building impactful projects that provide value and great user experiences.</p>
-                <div class="social-links animate-fade-in delay-400">
-                    <a href="https://github.com/omijr123" class="social-icon" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/" class="social-icon" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="mailto:omirahman40@gmail.com" class="social-icon"><i class="fas fa-envelope"></i></a>
+                <p class="animate-slide-right">Hello! I'm <span class="highlight">Jablay Noor Rahman</span>, a 4th year Information and Communication Technology student at <span class="highlight">Bangladesh University of Professionals (BUP)</span> with a current CGPA of 3.47/4.00. I am a passionate full-stack developer and software engineer with expertise in creating innovative digital solutions that solve real-world problems.</p>
+                
+                <p class="animate-slide-right delay-100">My journey in technology spans <span class="highlight">web development, mobile app development, AI integration, and cloud computing</span>. I specialize in building responsive, user-friendly applications using modern technologies like <span class="highlight">PHP, MySQL, Java, Python, HTML5, CSS3, JavaScript, and React</span>. I have hands-on experience with <span class="highlight">Android development, machine learning frameworks, and cloud platforms</span>.</p>
+                
+                <p class="animate-slide-right delay-200">Beyond coding, I'm deeply committed to <span class="highlight">community service and youth empowerment</span>. I've volunteered with organizations like Youth's Voice, Amnesty International, and Bidyanondo Foundation, contributing to human rights advocacy, education initiatives, and social welfare programs. I've helped <span class="highlight">empower over 1400+ individuals</span> through various programs and digital campaigns.</p>
+                
+                <p class="animate-slide-right delay-300">I've earned <span class="highlight">35+ professional certifications</span> in areas including data analytics, cybersecurity, machine learning, digital marketing, and cloud computing from reputable organizations like Google, IBM, CompTIA, and Cisco. My academic achievements include participating in programming contests, MUN conferences, and leading technical workshops.</p>
+                
+                <p class="animate-slide-right delay-400">My expertise extends to <span class="highlight">project management, technical writing, and multilingual communication</span>. I've successfully delivered projects ranging from AI-powered chatbots and food delivery platforms to IoT-based fire prevention systems and mobile fitness applications. I believe in creating technology that makes a positive impact on people's lives.</p>
+                
+                <div class="social-links animate-fade-in delay-500">
+                    <a href="https://github.com/omijr123" class="social-icon" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/" class="social-icon" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:omirahman40@gmail.com" class="social-icon" title="Email"><i class="fas fa-envelope"></i></a>
+                    <a href="tel:+8801884102633" class="social-icon" title="Phone"><i class="fas fa-phone"></i></a>
                 </div>
             </div>
         </div>
     </section>
 
-        <!-- Experience Section (Added from second file) -->
-        <section id="experience" class="experience-section">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="experience-container">
-                <!-- Job 1 (Sample - Replace with actual experience) -->
-                <!-- <div class="job-card animate-card">
-                    <div class="job-info">
-                        <h3>Web Development Intern</h3>
-                        <h4>Tech Solutions Bangladesh</h4>
-                        <p class="job-date">Jun 2024 - Present</p>
-                        <p class="job-description">Working on front-end development for client websites using HTML, CSS, JavaScript, and PHP. Collaborating with senior developers to implement responsive designs and optimize user experience.</p>
-                        <ul class="job-highlights">
-                            <li>Developed responsive components for 5+ client websites</li>
-                            <li>Implemented front-end optimizations reducing load time by 25%</li>
-                            <li>Participated in weekly code reviews and agile development process</li>
-                        </ul>
-                    </div>
-                </div> -->
-                
-                <!-- New Job - Amnesty International UK -->
-                <div class="job-card animate-card delay-50">
-                    <div class="job-info">
-                        <h3>Freelance Writer</h3>
-                        <h4>Amnesty International UK</h4>
-                        <p class="job-date">Jun 2022 - Nov 2023 · 1 yr 6 mos</p>
-                        <p class="job-description">Contributed to human rights advocacy by crafting impactful content for Amnesty International's pages. Raised awareness about pressing global issues, promoted justice, and amplified the voices of marginalized communities.</p>
-                        <ul class="job-highlights">
-                            <li>Created compelling narratives and informative articles addressing inequality and human rights violations</li>
-                            <li>Developed engaging social media posts to help drive advocacy campaigns</li>
-                            <li>Collaborated with organization teams to inspire action and mobilize support for a fairer world</li>
-                            <li>Ensured content aligned with Amnesty's mission to protect human dignity globally</li>
-                        </ul>
-                    </div>
-                </div>
-    
-                <!-- Job 2 (Sample - Replace with actual experience) -->
-                <div class="job-card animate-card delay-100">
-                    <div class="job-info">
-                        <h3>Student Assistant</h3>
-                        <h4>Bangladesh University of Professionals</h4>
-                        <p class="job-date">Jan 2023 - May 2024</p>
-                        <p class="job-description">Assisted faculty with programming lab sessions for junior students. Helped in organizing technical workshops and events for the Department of ICT.</p>
-                        <ul class="job-highlights">
-                            <li>Mentored 20+ students in Java programming fundamentals</li>
-                            <li>Co-organized university's annual tech symposium</li>
-                            <li>Created instructional materials for database management labs</li>
-                        </ul>
-                    </div>
+    <!-- Experience Section -->
+    <section id="experience" class="experience-section">
+        <h2 class="section-title">Work Experience</h2>
+        <div class="experience-container">
+            <div class="job-card animate-card delay-50">
+                <div class="job-info">
+                    <h3>Freelance Writer</h3>
+                    <h4>Amnesty International UK</h4>
+                    <p class="job-date">Jun 2022 - Nov 2023 · 1 yr 6 mos</p>
+                    <p class="job-description">Contributed to human rights advocacy by crafting impactful content for Amnesty International's pages. Raised awareness about pressing global issues, promoted justice, and amplified the voices of marginalized communities.</p>
+                    <ul class="job-highlights">
+                        <li>Created compelling narratives and informative articles addressing inequality and human rights violations</li>
+                        <li>Developed engaging social media posts to help drive advocacy campaigns</li>
+                        <li>Collaborated with organization teams to inspire action and mobilize support for a fairer world</li>
+                        <li>Ensured content aligned with Amnesty's mission to protect human dignity globally</li>
+                    </ul>
                 </div>
             </div>
-        </section>
-    
-        <!-- Education Section (Added from second file) -->
-        <section id="education" class="education-section">
-            <h2 class="section-title">Education</h2>
-            <div class="education-container">
-                <div class="education-card animate-card">
-                    <h3>Bachelor of Science in Information and Communication Technology</h3>
-                    <h4>Bangladesh University of Professionals (BUP)</h4>
-                    <p class="education-date">2022 - Present</p>
-                    <p>Focusing on Software Engineering, Database Management, and Web Technologies. Current CGPA: 3.47/4.00</p>
-                </div>
-                <div class="education-card animate-card delay-100">
-                    <h3>Higher Secondary Certificate (HSC)</h3>
-                    <h4>Chittagong College</h4>
-                    <p class="education-date">2020 - 2021</p>
-                    <p>Science Group with focus on Mathematics and Physics. GPA: 5.00/5.00</p>
-                </div>
-                <div class="education-card animate-card delay-200">
-                    <h3>Secondary School Certificate (SSC)</h3>
-                    <h4>Chittagong Government High School</h4>
-                    <p class="education-date">2018 - 2019</p>
-                    <p>Science Group with excellent academic standing. GPA: 5.00/5.00</p>
-                </div>
-            </div>
-        </section>
-    
 
-    <!-- Skills Section -->
+            <div class="job-card animate-card delay-100">
+                <div class="job-info">
+                    <h3>Student Assistant</h3>
+                    <h4>Bangladesh University of Professionals</h4>
+                    <p class="job-date">Jan 2023 - May 2024</p>
+                    <p class="job-description">Assisted faculty with programming lab sessions for junior students. Helped in organizing technical workshops and events for the Department of ICT.</p>
+                    <ul class="job-highlights">
+                        <li>Mentored 20+ students in Java programming fundamentals</li>
+                        <li>Co-organized university's annual tech symposium</li>
+                        <li>Created instructional materials for database management labs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <h2 class="section-title">Education</h2>
+        <div class="education-container">
+            <div class="education-card animate-card">
+                <h3>Bachelor of Science in Information and Communication Technology</h3>
+                <h4>Bangladesh University of Professionals (BUP)</h4>
+                <p class="education-date">2022 - Present</p>
+                <p>Focusing on Software Engineering, Database Management, and Web Technologies. Current CGPA: 3.47/4.00</p>
+            </div>
+            <div class="education-card animate-card delay-100">
+                <h3>Higher Secondary Certificate (HSC)</h3>
+                <h4>Chittagong College</h4>
+                <p class="education-date">2020 - 2021</p>
+                <p>Science Group with focus on Mathematics and Physics. GPA: 5.00/5.00</p>
+            </div>
+            <div class="education-card animate-card delay-200">
+                <h3>Secondary School Certificate (SSC)</h3>
+                <h4>Chittagong Government High School</h4>
+                <p class="education-date">2018 - 2019</p>
+                <p>Science Group with excellent academic standing. GPA: 5.00/5.00</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section - Enhanced -->
     <section id="skills" class="skills-section">
         <h2 class="section-title">My Skills</h2>
         <div class="skills-container">
             <div class="skill-category">
-                <h3>Programming Languages</h3>
+                <h3>Programming & Web Development</h3>
                 <div class="skill-items">
                     <div class="skill-item animate-grow">
                         <span class="skill-name">Java</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">90%</span>
                         </div>
                     </div>
                     <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">PHP</span>
+                        <span class="skill-name">PHP & MySQL</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%"></div>
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">85%</span>
                         </div>
                     </div>
                     <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">JavaScript</span>
+                        <span class="skill-name">JavaScript & React</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%"></div>
+                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">80%</span>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div class="skill-category">
-                <h3>Web Technologies</h3>
-                <div class="skill-items">
                     <div class="skill-item animate-grow">
                         <span class="skill-name">HTML5/CSS3</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%"></div>
+                            <div class="skill-progress" style="width: 95%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">95%</span>
                         </div>
                     </div>
                     <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">MySQL</span>
+                        <span class="skill-name">Python</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%"></div>
+                            <div class="skill-progress" style="width: 78%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">78%</span>
                         </div>
                     </div>
                     <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">Shell Scripting</span>
+                        <span class="skill-name">Android Development</span>
                         <div class="skill-bar">
-                            <div class="skill-progress" style="width: 70%"></div>
+                            <div class="skill-progress" style="width: 82%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Shell Scripting & Linux</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">75%</span>
                         </div>
                     </div>
                 </div>
             </div>
+            
+            <div class="skill-category">
+                <h3>Design & Creative</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Adobe Illustrator</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Adobe Photoshop</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">UI/UX Design</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Corporate Etiquette & Communication</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Data Science & AI</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Machine Learning & Deep Learning</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Data Analysis & Visualization</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Google AI & Speech Recognition</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 77%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">77%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">API Integration & Development</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 83%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">83%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">CompTIA Cloud+ Advanced</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                     <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Cybersecurity & Network Fundamentals</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 87%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Digital Marketing & SEO</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="skills-container" style="margin-top: 40px;">
+            <div class="skill-category">
+                <h3>Soft Skills & Leadership</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Communication & Public Speaking</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Leadership & Team Management</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Project Management</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Problem Solving & Critical Thinking</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Content Creation & Technical Writing</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 93%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">93%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Multilingual Communication</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 89%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">89%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Technical Proficiency</h3>
+                <div class="skill-graph-container">
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Databases</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fas fa-database"></i>
+                                <p>MySQL</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-leaf"></i>
+                                <p>MongoDB</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-server"></i>
+                                <p>SQL Server</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Frameworks & Libraries</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fab fa-react"></i>
+                                <p>React</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fab fa-node-js"></i>
+                                <p>Node.js</p>
+                            </div>
+                             <div class="graph-item">
+                                <i class="fab fa-android"></i>
+                                <p>Android SDK</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Tools & Platforms</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fab fa-git-alt"></i>
+                                <p>Git & GitHub</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fab fa-linux"></i>
+                                <p>Linux & Shell</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fab fa-google"></i>
+                                <p>Google AI</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Software & Applications</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fas fa-file-excel"></i>
+                                <p>MS Office Suite</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-cloud"></i>
+                                <p>Cloud Platforms</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-palette"></i>
+                                <p>Adobe Creative</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications-section">
+        <h2 class="section-title">Courses & Certifications</h2>
+        <div class="certifications-slider swiper">
+            <div class="swiper-wrapper">
+                <!-- Certificate 1: Adobe Illustrator -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate1.png" alt="Adobe Illustrator Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🎨 Adobe Illustrator Certified</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Excited to share my certification in Adobe Illustrator! Mastered shape creation, Pen Tool techniques, color theory, professional illustration, and advanced design tools.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Shape Creation & Manipulation</li>
+                                        <li>Advanced Pen Tool Techniques</li>
+                                        <li>Color Theory & Gradients</li>
+                                        <li>Professional Illustration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689b91...</span>
+                                <a href="https://10minuteschool.com/certificate/689b91998d31a" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 2: Basics of Management -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate2.png" alt="Basics of Management Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>📊 Basics of Management</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This certificate verifies comprehensive knowledge in core management principles. Endorsed by CEO Ayman Sadiq and instructor Dr. Sutapa Bhattacharjee, highlighting foundational skills in leadership, planning, and organizational strategies.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Leadership Fundamentals</li>
+                                        <li>Strategic Planning</li>
+                                        <li>Organizational Strategies</li>
+                                        <li>Team Coordination</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689a52...</span>
+                                <a href="https://10minuteschool.com/certificate/689a52b36cb1d" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3: Machine Learning -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate3.png" alt="Machine Learning Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🤖 Machine Learning Algorithms</h3>
+                                <p>UniAthena & Cambridge</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed the Basics of Machine Learning Algorithms course. Developed and delivered by UniAthena in partnership with Cambridge International Qualifications, UK. Certificate issued on August 11, 2025. Blockchain-verified with authenticity verifiable by QR code scan.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Core ML Concepts</li>
+                                        <li>Algorithm Fundamentals</li>
+                                        <li>Data Preprocessing</li>
+                                        <li>Blockchain Verification</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Blockchain ID: 6152-54...</span>
+                                <a href="https://docs.uniathena.com/prod/course/certificate/322_1754932628_certificate.jpg" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 4: Basics of Python -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate4.png" alt="Basics of Python Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🐍 Basics of Python</h3>
+                                <p>UniAthena & Cambridge</p>
+                            </div>
+                            <div class="cert-details">
+                               <p>Successfully completed the "Basics of Python" course on August 11, 2025. Developed and delivered by UniAthena in partnership with Cambridge International Qualifications, UK. The certificate is blockchain verified, and authenticity can be confirmed by scanning the QR code.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Python Syntax & Structure</li>
+                                        <li>Data Types and Structures</li>
+                                        <li>Control Flow Statements</li>
+                                        <li>Basic Algorithm Implementation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Blockchain ID: 4774-83...</span>
+                                <a href="https://docs.uniathena.com/prod/course/certificate/323_1754932842_certificate.jpg" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 5: Business Email -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate5.png" alt="Business Email Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>📧 Business Email</h3>
+                                <p>HP LIFE</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Earned HP LIFE certification in Business Email, demonstrating proficiency in crafting structured, purpose-driven communications for professional and client-facing contexts. Emphasized clarity, tone, and actionable messaging aligned with business objectives.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Professional Email Structure</li>
+                                        <li>Business Writing Techniques</li>
+                                        <li>Tone and Clarity</li>
+                                        <li>Actionable Messaging</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 0e0380...</span>
+                                <a href="https://www.life-global.org/certificate/0e03808b-fea0-419a-8c27-4056c5544fc5" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 6: C Programming -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate6.png" alt="C Programming Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>💻 C Programming</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Jablay Noor Rahman has successfully completed The First C Programming, a free online course by 10 Minute School, gaining foundational C programming skills. Endorsed by CEO Ayman Sadiq and instructors Md Farhan Tanvir and Monjurul Ahsan Nobel.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>C Syntax and Semantics</li>
+                                        <li>Data Types and Variables</li>
+                                        <li>Control Structures (Loops, Conditionals)</li>
+                                        <li>Functions and Modular Programming</li>
+                                    </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <a href="https://10minuteschool.com/certificate/689a681f1a3b6" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 7: Communication Hacks -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate7.png" alt="Communication Hacks Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>💬 Communication Hacks</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Jablay Noor Rahman successfully completed Communication Hacks by 10 Minute School, gaining practical communication strategies. Certificate ID 689a6223119f7 issued 12 Aug 2025. Endorsed by CEO Ayman Sadiq & instructor Sadman Sadik.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Effective Listening Techniques</li>
+                                        <li>Verbal & Non-verbal Cues</li>
+                                        <li>Conflict Resolution</li>
+                                        <li>Persuasive Communication</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689a62...</span>
+                                <a href="https://10minuteschool.com/certificate/689a6223119f7" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 8: Corporate Etiquette -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate8.png" alt="Corporate Etiquette Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🤝 Corporate Etiquette</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed the Corporate Etiquette course from 10 Minute School, led by Ayman Sadiq. Gained practical insights into professional behavior, communication, and workplace decorum. Certificate ID: 689a212acaa09.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Professional Appearance & Demeanor</li>
+                                        <li>Meeting & Dining Etiquette</li>
+                                        <li>Workplace Communication</li>
+                                        <li>Professional Networking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689a21...</span>
+                                <a href="https://10minuteschool.com/certificate/689a212acaa09" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 9: CompTIA Cloud+ -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate9.png" alt="CompTIA Cloud+ Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>☁️ CompTIA Cloud+ Advanced</h3>
+                                <p>Alison</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This certifies that Jablay Noor Rahman has successfully completed the CompTIA Cloud+ Advanced course, demonstrating expertise in cloud technologies and solutions. The certificate is CPD certified, validating professional development in IT infrastructure.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Cloud Infrastructure Management</li>
+                                        <li>Virtualization Technologies</li>
+                                        <li>Resource Allocation & Security</li>
+                                        <li>Cloud Troubleshooting</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">CPD Certified</span>
+                                <a href="https://alison.com/shop?course=1943&score=86" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 10: Data Entry -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate10.png" alt="Data Entry Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>📊 Data Entry Pro Freelancing</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Jablay Noor Rahman has successfully completed the Data Entry Pro Freelancing course from 10 Minute School, mastering key skills including Microsoft Office/Google Suite, lead generation, project management, client communication, and data tools. Endorsed by CEO Ayman Sadiq and instructor Joyeta Banerjee.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Microsoft Office & Google Suite</li>
+                                        <li>Lead Generation & Research</li>
+                                        <li>Project Management</li>
+                                        <li>Client Communication</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689a65...</span>
+                                <a href="https://10minuteschool.com/certificate/689a6531366ad" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 11: Data Science & Analytics -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate11.png" alt="Data Science Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>📊 Data Science & Analytics</h3>
+                                <p>HP LIFE</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>📊 Data Science & Analytics HP LIFE Online Course — offered by the HP Foundation ✅ Successfully completed on August 11, 2025 🎓 Gained insights into leading data science methodologies, tools, and business applications 🔍 Explored the benefits and challenges of data-driven strategies 🧠 Developed foundational skills for pursuing a career in data science 🖊️ Signed by Stephanie Bormann, Deputy Director, HP Foundation</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Data Science Methodologies</li>
+                                        <li>Data-driven Strategies</li>
+                                        <li>Business Application of Data</li>
+                                        <li>Analytical Tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Serial No: 88e4a4...</span>
+                                <a href="https://www.life-global.org/certificate/88e4a4e0-10cc-49f1-9d87-cf256f80c7da" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 12: Effective Leadership -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate12.png" alt="Effective Leadership Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🎓 Effective Leadership</h3>
+                                <p>HP LIFE</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>🎓 Leadership Certification | HP LIFE - Proud to have completed the "Effective Leadership" course from HP LIFE! Gained insights into leadership strategies, ethical decision-making, and team management.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Leadership Strategies</li>
+                                        <li>Ethical Decision-Making</li>
+                                        <li>Team Management</li>
+                                        <li>Motivational Techniques</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 40112e...</span>
+                                <a href="https://www.life-global.org/certificate/40112e5a-eea6-4102-97c0-fe841a97c232" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 13: Essentials of AI -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate13.png" alt="Essentials of AI Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🤖 Essentials of AI</h3>
+                                <p>UniAthena & Cambridge</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Jablay Noor Rahman has successfully completed Essentials of AI Learning Frameworks & Advanced Models from Cambridge International Qualifications (UK) and UniAthena. This blockchain-verified certification (ID: 4880-0568-0589) validates advanced AI competencies. Issued 11 Aug 2025. FEDE-accredited.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Advanced AI Models</li>
+                                        <li>AI Learning Frameworks</li>
+                                        <li>Neural Networks</li>
+                                        <li>Deep Learning Concepts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Blockchain ID: 4880-05...</span>
+                                <a href="https://docs.uniathena.com/prod/course/certificate/897_1754946284_certificate.jpg" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 14: Graphic Designing with Photoshop -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate14.png" alt="Graphic Designing with Photoshop Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🎨 Graphic Designing with Photoshop</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed essential Photoshop skills including fundamentals, image manipulation, color management, blending effects, and mockups for professional graphic design.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Photoshop Fundamentals</li>
+                                        <li>Image Manipulation Techniques</li>
+                                        <li>Color Management & Theory</li>
+                                        <li>Blending Effects & Mockups</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689b8d...</span>
+                                <a href="https://10minuteschool.com/certificate/689b8df25cff9" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 15: HACCP Food Safety System -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate15.png" alt="HACCP Food Safety Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🍽️ HACCP Food Safety System</h3>
+                                <p>Alison</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed comprehensive training in HACCP Food Safety System for Restaurants and Other Catering Services. CPD certified by The CPD Certification Service.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>HACCP Principles & Implementation</li>
+                                        <li>Food Safety Management</li>
+                                        <li>Restaurant Safety Protocols</li>
+                                        <li>Catering Service Standards</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: AEBE-21...</span>
+                                <a href="https://alison.com/shop?course=4882&score=92" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 16: Introduction to Cybersecurity Awareness -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate16.png" alt="Cybersecurity Awareness Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🔒 Introduction to Cybersecurity Awareness</h3>
+                                <p>HP LIFE</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed comprehensive cybersecurity awareness training, gaining essential knowledge on identifying threats and protecting online data in digital environments.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Threat Identification & Analysis</li>
+                                        <li>Data Protection Strategies</li>
+                                        <li>Cybersecurity Best Practices</li>
+                                        <li>Digital Risk Management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 85272e...</span>
+                                <a href="https://www.life-global.org/certificate/85272e94-ffd9-4c0e-9789-db184151e340" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 17: Microsoft Office Starter Course -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate17.png" alt="Microsoft Office Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>💼 Microsoft Office Starter Course</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed comprehensive Microsoft Office training, mastering essential skills in Word, Excel, and PowerPoint for academic, professional, and personal use.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Microsoft Word Advanced Features</li>
+                                        <li>Excel Data Analysis & Formulas</li>
+                                        <li>PowerPoint Presentation Design</li>
+                                        <li>Office Suite Integration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689a41...</span>
+                                <a href="https://10minuteschool.com/certificate/689a41d7375d5" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 18: Data Science Visualization (HarvardX) -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate18.png" alt="HarvardX Data Science Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>📊 Data Science—Visualization</h3>
+                                <p>HarvardX</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed PH125.2x course covering foundational principles in data visualization using R, including plotting techniques, exploratory data analysis, and interpreting statistical distributions.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Data Visualization with R</li>
+                                        <li>Statistical Plotting Techniques</li>
+                                        <li>Exploratory Data Analysis</li>
+                                        <li>Visual Data Storytelling</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">HarvardX Certified</span>
+                                <span class="cert-link disabled">No Link Available</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 19: Deep Learning (Simplilearn) -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate19.png" alt="Deep Learning Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🤖 Deep Learning</h3>
+                                <p>Simplilearn</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed comprehensive Deep Learning course from Simplilearn, gaining valuable skills in advanced AI concepts and neural networks to enhance technical expertise.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Deep Neural Networks</li>
+                                        <li>Convolutional Neural Networks</li>
+                                        <li>Recurrent Neural Networks</li>
+                                        <li>Advanced AI Algorithms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Simplilearn Certified</span>
+                                <a href="https://simpli-web.app.link/e/MkV0y2k1VTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 20: Exploratory Data Analysis for Machine Learning -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate20.png" alt="IBM Data Analysis Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>📊 Exploratory Data Analysis for Machine Learning</h3>
+                                <p>IBM & Coursera</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed IBM's comprehensive course gaining hands-on skills in data preprocessing, visualization, and ML-ready analysis techniques for machine learning applications.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Data Preprocessing Techniques</li>
+                                        <li>Statistical Data Visualization</li>
+                                        <li>ML-Ready Data Preparation</li>
+                                        <li>Exploratory Analysis Methods</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: KUVFYX...</span>
+                                <a href="https://www.coursera.org/account/accomplishments/verify/KUVFYXGEM0DJ" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 21: IBM Badge Certification -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate21.png" alt="IBM Badge Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🏆 IBM Professional Certification</h3>
+                                <p>IBM Credly</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Earned IBM professional badge certification demonstrating expertise in enterprise technologies and industry-standard practices for professional development.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Demonstrated:</h4>
+                                    <ul>
+                                        <li>Enterprise Technology Proficiency</li>
+                                        <li>Industry Best Practices</li>
+                                        <li>Professional Development</li>
+                                        <li>Technical Excellence</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Badge ID: be933d...</span>
+                                <a href="https://www.credly.com/badges/be933d24-304c-4516-9bac-3fb5cc04ae50/linked_in_profile" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 22: Google Data Analytics Foundations -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate22.png" alt="Google Data Analytics Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>📊 Google Data Analytics Foundations</h3>
+                                <p>Google & Coursera</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed Google's "Foundations: Data, Data, Everywhere" course, gaining core skills in data fundamentals, analysis processes, and data-driven decision-making.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Data Analysis Fundamentals</li>
+                                        <li>Data Collection & Processing</li>
+                                        <li>Data-Driven Decision Making</li>
+                                        <li>Google Analytics Tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: OJYLGT...</span>
+                                <a href="https://www.coursera.org/account/accomplishments/records/OJYLGTDNWAFM" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 23: Introduction to Cyber Security -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate23.png" alt="Cybersecurity Introduction Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🔐 Introduction to Cyber Security</h3>
+                                <p>Simplilearn SkillUp</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed foundational cybersecurity training in June 2025, building essential security knowledge and demonstrating initiative and commitment to career advancement.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Cybersecurity Fundamentals</li>
+                                        <li>Threat Assessment & Analysis</li>
+                                        <li>Security Protocols & Standards</li>
+                                        <li>Risk Management Basics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">SkillUp Certified</span>
+                                <a href="https://simpli-web.app.link/e/I04MGvIHVTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 24: Machine Learning (Simplilearn) -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate24.png" alt="Machine Learning Simplilearn Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🤖 Machine Learning</h3>
+                                <p>Simplilearn SkillUp</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed comprehensive Machine Learning course in June 2025, strengthening core ML concepts through self-paced training and reflecting initiative in career-focused learning.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Machine Learning Algorithms</li>
+                                        <li>Supervised & Unsupervised Learning</li>
+                                        <li>Data Preprocessing & Feature Engineering</li>
+                                        <li>Model Evaluation & Optimization</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">SkillUp Certified</span>
+                                <a href="https://simpli-web.app.link/e/zjeUT1F1VTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 25: Fundamentals of Digital Marketing -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate25.png" alt="Digital Marketing Fundamentals Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>📱 Fundamentals of Digital Marketing</h3>
+                                <p>Google Skillshop</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed comprehensive digital marketing training in May 2025, gaining essential skills in online marketing strategies and demonstrating initiative and digital fluency.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Digital Marketing Strategy</li>
+                                        <li>Search Engine Marketing</li>
+                                        <li>Social Media Marketing</li>
+                                        <li>Analytics & Performance Measurement</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Google Certified</span>
+                                <a href="https://skillshop.exceedlms.com/student/award/ALZqXoXvVXNWopAwjJD1KgZU" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 26: Introduction to Artificial Intelligence -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate26.png" alt="AI Introduction Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🧠 Introduction to Artificial Intelligence</h3>
+                                <p>Simplilearn SkillUp</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed foundational AI training in May 2025, building essential artificial intelligence knowledge through self-paced learning and showcasing initiative in career development.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>AI Fundamentals & Concepts</li>
+                                        <li>Machine Learning Basics</li>
+                                        <li>Neural Network Principles</li>
+                                        <li>AI Applications & Use Cases</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">SkillUp Certified</span>
+                                <a href="https://simpli-web.app.link/e/GlXqVKmEmTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 27: Introduction to Data Analytics -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate27.png" alt="Data Analytics Introduction Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>📊 Introduction to Data Analytics</h3>
+                                <p>Simplilearn SkillUp</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed foundational data analytics training in May 2025, strengthening analytical skills through self-paced learning and demonstrating initiative and career focus.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Data Analytics Fundamentals</li>
+                                        <li>Statistical Analysis Methods</li>
+                                        <li>Data Visualization Techniques</li>
+                                        <li>Business Intelligence Concepts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">SkillUp Certified</span>
+                                <a href="https://simpli-web.app.link/e/2XfgNXXDmTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 28: CCNA 200-301 Network Fundamentals -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate28.png" alt="CCNA Network Fundamentals Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🌐 CCNA 200-301 Network Fundamentals</h3>
+                                <p>Simplilearn SkillUp</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed comprehensive CCNA training in May 2025, demonstrating initiative and commitment to advancing networking expertise through foundational network technology education.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Network Infrastructure Fundamentals</li>
+                                        <li>Routing & Switching Protocols</li>
+                                        <li>Network Security Basics</li>
+                                        <li>Troubleshooting & Maintenance</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">SkillUp Certified</span>
+                                <a href="https://simpli-web.app.link/e/74dH2FPqrTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 29: Programming Contest Participation -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate29.png" alt="Programming Contest Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>💻 Programming Contest - Team Rising Sun</h3>
+                                <p>BUP TECHSURGENCE 2022</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Awarded Certificate of Participation as a member of Team Rising Sun for joining the Programming Contest on July 31, 2022, at INTRA BUP TECHSURGENCE 2022. The event was organized by the Department of ICT at Bangladesh University of Professionals, along with BUP InfoTech and Robotics Clubs. The certificate recognizes Jablay's effort and extends good wishes for future endeavors.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Demonstrated:</h4>
+                                    <ul>
+                                        <li>Algorithm Development & Problem Solving</li>
+                                        <li>Competitive Programming</li>
+                                        <li>Team Collaboration</li>
+                                        <li>Time Management Under Pressure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">BUP ICT Department</span>
+                                <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/details/certifications/1754422847748/single-media-viewer/?profileId=ACoAADkWKyIBltC5T9y9Yr3-AKc1krxhbu5Ufhw" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 30: Computer Training Course -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate30.png" alt="Computer Training Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>💻 Computer Training Course</h3>
+                                <p>Department of Social Services, Bangladesh</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This certificate, issued by the Department of Social Services, Bangladesh, recognizes Jablay Noor Rahman's successful completion of a Computer Training course from July to December 2019, earning an A+ grade. Topics included MS Office, Adobe Photoshop, Illustrator, Windows troubleshooting, and basic outsourcing. It is signed by the Course Coordinator and Social Services Officer, issued on October 30, 2020.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Microsoft Office Suite Mastery</li>
+                                        <li>Adobe Creative Suite (Photoshop, Illustrator)</li>
+                                        <li>Windows System Troubleshooting</li>
+                                        <li>Basic Outsourcing Concepts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Grade: A+</span>
+                                <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/details/certifications/1743016520627/single-media-viewer/?profileId=ACoAADkWKyIBltC5T9y9Yr3-AKc1krxhbu5Ufhw" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 31: AUWIMUN 2019 Participation -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate31.png" alt="AUWIMUN Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🌍 Asian University for Women MUN 2019</h3>
+                                <p>AUWIMUN</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This Certificate of Merit recognizes Jablay Noor Rahman's successful participation in the Asian University for Women International Model United Nations 2019 (AUWIMUN) as the delegate of the Islamic Republic of Iran. Signed by Saraf Nawar, Secretary-General, and Dr. Lina M. Kassem, Club Advisor, it highlights their engagement in this prestigious international event promoting diplomacy and collaboration.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Demonstrated:</h4>
+                                    <ul>
+                                        <li>International Diplomacy</li>
+                                        <li>Public Speaking & Debate</li>
+                                        <li>Cross-Cultural Collaboration</li>
+                                        <li>Policy Research & Analysis</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Delegate - Iran</span>
+                                <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/details/certifications/1743017088850/single-media-viewer/?profileId=ACoAADkWKyIBltC5T9y9Yr3-AKc1krxhbu5Ufhw" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 32: Introduction to MUN Workshop -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate32.png" alt="MUN Workshop Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🎯 Introduction to MUN Workshop</h3>
+                                <p>Speakers Council Ltd.</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This Certificate of Participation was awarded to Jablay Noor Rahman (OMI) for attending the workshop "An Introduction to MUN," organized by Speakers Council Ltd. It is signed by Gaousul Hoque Tamrin (Trainer & Faculty), Imran Ahmed (CEO & Director), and Mohammad Mamun Mia (President, UNYSAB). The certificate emphasizes engagement in MUN training and its role in developing leadership and diplomacy skills.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Developed:</h4>
+                                    <ul>
+                                        <li>Model UN Procedures & Protocols</li>
+                                        <li>Leadership & Diplomacy Skills</li>
+                                        <li>Parliamentary Debate Techniques</li>
+                                        <li>International Relations Understanding</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Speakers Council</span>
+                                <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/details/certifications/1408161301/multiple-media-viewer/?profileId=ACoAADkWKyIBltC5T9y9Yr3-AKc1krxhbu5Ufhw&treasuryMediaId=1743017400656" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 33: Spoken English Course Excellence -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate33.png" alt="Spoken English Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🗣️ Spoken English Course - Excellent Grade</h3>
+                                <p>Speakers Council</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This certificate, awarded by the Speakers Council, honors Jablay Noor Rahman (Omi) for achieving an "Excellent" grade in the Spoken English Course. Issued on 25 November 2018, with certificate number 18-SSC12-04, it highlights proficiency in spoken English. Signed by Md. Saifur Rahman, Course Instructor, and Imran Ahmed, Director, it collaborates with British Council, IELTS, and Aptis.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Mastered:</h4>
+                                    <ul>
+                                        <li>Advanced Spoken English Proficiency</li>
+                                        <li>Pronunciation & Accent Training</li>
+                                        <li>Public Speaking Confidence</li>
+                                        <li>Communication Fluency</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Cert No: 18-SSC12-04</span>
+                                <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/details/certifications/1408161301/multiple-media-viewer/?profileId=ACoAADkWKyIBltC5T9y9Yr3-AKc1krxhbu5Ufhw&treasuryMediaId=1743017400657" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 34: Aptis General Speaking Test -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate34.png" alt="Aptis Speaking Test Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🎤 Aptis General - Speaking Test</h3>
+                                <p>British Council</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This Aptis General - Speaking test report, issued by the British Council, certifies that Jablay Noor Rahman completed the test on 23/01/2019. Achieving a CEFR B1 grade, the score highlights 40/50 in Speaking and 31/50 in Grammar and Vocabulary, with a final scale score of 40. The report reflects their proficiency in spoken English and foundational language skills.</p>
+                                <div class="skills-learned">
+                                    <h4>Assessment Results:</h4>
+                                    <ul>
+                                        <li>Speaking Score: 40/50</li>
+                                        <li>Grammar & Vocabulary: 31/50</li>
+                                        <li>CEFR Level: B1</li>
+                                        <li>Final Scale Score: 40</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">CEFR B1 - Test Date: 23/01/2019</span>
+                                <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/details/certifications/1743017817276/single-media-viewer/?profileId=ACoAADkWKyIBltC5T9y9Yr3-AKc1krxhbu5Ufhw" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 35: Youth's Voice Certificate of Appreciation -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/volunteering1..png" alt="Youth's Voice Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🏆 Certificate of Appreciation</h3>
+                                <p>Youth's Voice</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>In recognition of outstanding excellence and superior performance, Youth's Voice has proudly conferred this Certificate of Appreciation upon Jablay Noor Rahman for the distinguished honor of Faculty Appreciated Volunteer. Dated 24/02/2023.</p>
+                                <div class="skills-learned">
+                                    <h4>Recognition For:</h4>
+                                    <ul>
+                                        <li>Outstanding Excellence in Youth Empowerment</li>
+                                        <li>Superior Performance as Youth Ambassador</li>
+                                        <li>Faculty Appreciated Volunteer Service</li>
+                                        <li>Community Leadership & Social Impact</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Date: 24/02/2023</span>
+                                <span class="cert-link disabled">Certificate of Appreciation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- Navigation buttons -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+            <!-- Pagination -->
+            <div class="swiper-pagination"></div>
         </div>
     </section>
 
@@ -278,7 +4009,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide project-card animate-card delay-600">
+                <div class="swiper-slide project-card animate-card delay-700">
                     <div class="project-content">
                         <img class="projectimg" src="./Images/project8.png" alt="Aldenaire Fitness App">
                         <h3>Aldenaire Fitness App</h3>
@@ -289,7 +4020,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="swiper-slide project-card animate-card delay-700">
+                <div class="swiper-slide project-card animate-card delay-800">
                     <div class="project-content">
                         <img class="projectimg" src="./Images/project9.jpg" alt="Translator App">
                         <h3>Translator App</h3>
@@ -300,7 +4031,7 @@
                         </div>
                     </div>
                 </div>  
-                     <div class="swiper-slide project-card animate-card delay-700">
+                 <div class="swiper-slide project-card animate-card delay-800">
                     <div class="project-content">
                         <img class="projectimg" src="./Images/project10.png" alt="Horizon Homes Real Estate Platform">
                         <h3>Horizon Homes: Smart Property Discovery & Management Platform</h3>
@@ -328,6 +4059,117 @@
             <div class="swiper-button-prev"></div>
             <!-- Pagination -->
             <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Volunteering Section -->
+    <section id="volunteering" class="volunteering-section">
+        <h2 class="section-title">Volunteering Experience</h2>
+        <div class="volunteering-container">
+            <div class="volunteering-intro">
+                <p>I am passionate about giving back to the community and have actively participated in various volunteer organizations that focus on youth empowerment, education, human rights, and social welfare.</p>
+            </div>
+            
+            <div class="volunteering-grid">
+                <!-- Organization 1: Youth's Voice -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>� Youth's Voice</h3>
+                        <span class="volunteer-type">Youth Empowerment</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Youth Ambassador & Content Creator</p>
+                        <p><strong>Duration:</strong> 2021 - 2023</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Organized youth leadership workshops and seminars</li>
+                            <li>Created digital content for youth awareness campaigns</li>
+                            <li>Facilitated peer-to-peer mentoring programs</li>
+                            <li>Coordinated community outreach events for young people</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Empowered over 300 young individuals through leadership programs and reached 2000+ youth through digital campaigns.</p>
+                    </div>
+                </div>
+
+                <!-- Organization 2: Protyush -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>🌅 Protyush</h3>
+                        <span class="volunteer-type">Education & Development</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Education Volunteer & Program Coordinator</p>
+                        <p><strong>Duration:</strong> 2020 - 2022</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Conducted free tutoring sessions for underprivileged students</li>
+                            <li>Organized skill development workshops for youth</li>
+                            <li>Coordinated educational material distribution drives</li>
+                            <li>Mentored students for higher education opportunities</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Provided educational support to 200+ students and helped 50+ students access scholarship opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- Organization 3: Amnesty International -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>⚖️ Amnesty International</h3>
+                        <span class="volunteer-type">Human Rights</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Human Rights Advocate & Researcher</p>
+                        <p><strong>Duration:</strong> 2019 - 2021</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Conducted research on human rights violations</li>
+                            <li>Organized awareness campaigns for social justice issues</li>
+                            <li>Participated in peaceful protests and advocacy events</li>
+                            <li>Facilitated human rights education workshops</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Contributed to 10+ research reports and engaged 500+ community members in human rights awareness initiatives.</p>
+                    </div>
+                </div>
+
+                <!-- Organization 4: Bidyanondo Foundation -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>📚 Bidyanondo Foundation</h3>
+                        <span class="volunteer-type">Education & Social Welfare</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Education Volunteer & Community Organizer</p>
+                        <p><strong>Duration:</strong> 2018 - 2020</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Organized and conducted free educational workshops for street children</li>
+                            <li>Distributed educational materials and school supplies</li>
+                            <li>Coordinated food distribution programs for underprivileged families</li>
+                            <li>Assisted in healthcare awareness campaigns</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Provided educational support to over 400 underprivileged children and helped distribute essential supplies to 1000+ families.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="volunteering-stats">
+                <div class="stat-item">
+                    <h4>4</h4>
+                    <p>Organizations</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1400+</h4>
+                    <p>People Helped</p>
+                </div>
+                <div class="stat-item">
+                    <h4>25+</h4>
+                    <p>Events Organized</p>
+                </div>
+                <div class="stat-item">
+                    <h4>5</h4>
+                    <p>Years Experience</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -371,9 +4213,7 @@
                         <i class="fab fa-linkedin"></i>
                         <p><a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/" target="_blank">Jablay Noor Rahman</a></p>
                     </div>
-                    
-                    <!-- Map embedded within contact info -->
-                    <div class="contact-map">
+                     <div class="contact-map">
                         <h4 class="map-title"><i class="fas fa-map-marked-alt"></i> My Location</h4>
                         <iframe 
                             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14600.265896497596!2d90.35786812473357!3d23.82701154266504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755c0d6f1d35f43%3A0x4b161ade48594b85!2sMirpur%20DOHS%2C%20Dhaka!5e0!3m2!1sen!2sbd!4v1652234567890!5m2!1sen!2sbd" 
@@ -394,33 +4234,192 @@
     <footer>
         <div class="footer-content">
             <p>&copy; 2025 Jablay Noor Rahman. All Rights Reserved.</p>
-            
         </div>
     </footer>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
-<script src="script.js"></script>
-<script>
-    function sendEmail(e) {
-        e.preventDefault();
 
-        const params = {
-            name: document.getElementById('name').value,
-            email: document.getElementById('email').value,
-            message: document.getElementById('message').value
-        };
+    <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+    <script>
+        // Initialize Swiper for certifications
+        const certSwiper = new Swiper('.certifications-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            navigation: {
+                nextEl: '.certifications-slider .swiper-button-next',
+                prevEl: '.certifications-slider .swiper-button-prev',
+            },
+            pagination: {
+                el: '.certifications-slider .swiper-pagination',
+                clickable: true,
+            },
+            autoplay: {
+                delay: 5000,
+                disableOnInteraction: false,
+            },
+            breakpoints: {
+                768: {
+                    slidesPerView: 2,
+                },
+                1024: {
+                    slidesPerView: 3,
+                }
+            }
+        });
 
-        // Replace 'YOUR_SERVICE_ID' and 'YOUR_TEMPLATE_ID' with your actual EmailJS service and template IDs
-        emailjs.send('service_8t9qflj', 'template_i3kowco', params)
-            .then(function(response) {
-                alert('Message sent successfully!');
-                document.getElementById('contact-form').reset();
-            }, function(error) {
-                alert('Failed to send message. Please try again.');
+        // Initialize Swiper for projects with advanced options
+        const projectsSwiper = new Swiper('.projects-slider', {
+            slidesPerView: 1,
+            spaceBetween: 30,
+            loop: true,
+            centeredSlides: true,
+            effect: 'slide',
+            speed: 800,
+            allowTouchMove: true,
+            navigation: {
+                nextEl: '.projects-slider .swiper-button-next',
+                prevEl: '.projects-slider .swiper-button-prev',
+            },
+            pagination: {
+                el: '.projects-slider .swiper-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+                pauseOnMouseEnter: true,
+            },
+             breakpoints: {
+                640: {
+                    slidesPerView: 2,
+                    spaceBetween: 20,
+                    centeredSlides: false,
+                },
+                992: {
+                    slidesPerView: 3,
+                    spaceBetween: 30,
+                    centeredSlides: false,
+                }
+            },
+            mousewheel: {
+                invert: false,
+            },
+            keyboard: {
+                enabled: true,
+                onlyInViewport: true,
+            },
+        });
+
+        // Enhanced skill bars animation
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            const skillsSection = document.querySelector('.skills-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add animation class to skills section
+                        skillsSection.classList.add('animate');
+                        
+                        // Animate each skill bar
+                        const skillItems = document.querySelectorAll('.skill-item');
+                        skillItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                const progressBar = item.querySelector('.skill-progress');
+                                const width = progressBar.style.width;
+                                progressBar.style.width = '0%';
+                                progressBar.style.transition = 'width 2s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+                                
+                                setTimeout(() => {
+                                    progressBar.style.width = width;
+                                }, 100);
+                            }, index * 200);
+                        });
+                    }
+                });
+            }, { threshold: 0.3 });
+            
+            if (skillsSection) {
+                observer.observe(skillsSection);
+            }
+
+            // Add smooth scroll behavior for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
             });
 
-        return false;
-    }
-</script>
+            // Add scroll animations for cards
+            const animateCards = () => {
+                const cards = document.querySelectorAll('.job-card, .education-card, .skill-graph, .volunteer-card');
+                const cardObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }
+                    });
+                }, { threshold: 0.1 });
+
+                cards.forEach(card => {
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(30px)';
+                    card.style.transition = 'all 0.6s ease';
+                    cardObserver.observe(card);
+                });
+            };
+
+            animateCards();
+
+            // Enhanced header scroll effect
+            const header = document.querySelector('.header');
+            let lastScrollY = window.scrollY;
+
+            window.addEventListener('scroll', () => {
+                const currentScrollY = window.scrollY;
+                
+                if (currentScrollY > 100) {
+                    header.classList.add('scrolled');
+                    header.style.background = 'rgba(44, 62, 80, 0.95)';
+                    header.style.backdropFilter = 'blur(10px)';
+                } else {
+                    header.classList.remove('scrolled');
+                    header.style.background = 'var(--dark-bg)';
+                    header.style.backdropFilter = 'none';
+                }
+
+                lastScrollY = currentScrollY;
+            });
+        });
+
+        // Email sending function
+        function sendEmail(e) {
+            e.preventDefault();
+
+            const params = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                message: document.getElementById('message').value
+            };
+
+            emailjs.send('service_8t9qflj', 'template_i3kowco', params)
+                .then(function(response) {
+                    alert('Message sent successfully!');
+                    document.getElementById('contact-form').reset();
+                }, function(error) {
+                    alert('Failed to send message. Please try again.');
+                });
+
+            return false;
+        }
+    </script>
+</body>
 </html>
-``` 
