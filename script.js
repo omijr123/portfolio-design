@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stretch: 0,
             depth: 200,
             modifier: 1,
-            slideShadows: true,
+            slideShadows: true, 
         },
         pagination: {
             el: '.projects-section .swiper-pagination',
