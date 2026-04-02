@@ -58,6 +58,10 @@
             font-weight: 400;
         }
 
+        body.access-locked {
+            overflow: hidden;
+        }
+
         body::before {
             content: '';
             position: fixed;
@@ -159,6 +163,84 @@
             background: linear-gradient(135deg, #c0392b 0%, #992d22 100%);
             transform: translateY(-3px);
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .access-gate {
+            position: fixed;
+            inset: 0;
+            z-index: 2000;
+            background: linear-gradient(135deg, rgba(23, 32, 42, 0.96) 0%, rgba(52, 73, 94, 0.96) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .gate-card {
+            width: 100%;
+            max-width: 560px;
+            background: #ffffff;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+            padding: 30px;
+        }
+
+        .gate-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+        }
+
+        .gate-card p {
+            color: #5d6d7e;
+            margin-bottom: 16px;
+        }
+
+        .gate-divider {
+            margin: 18px 0;
+            border: 0;
+            border-top: 1px solid #e5e8eb;
+        }
+
+        .gate-form {
+            display: grid;
+            gap: 12px;
+        }
+
+        .gate-form input,
+        .gate-form textarea {
+            width: 100%;
+            border: 1px solid #d5d8dc;
+            border-radius: 10px;
+            padding: 12px;
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+        }
+
+        .gate-form textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .gate-form button {
+            border: 0;
+            border-radius: 10px;
+            padding: 12px 16px;
+            font-weight: 700;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(135deg, var(--primary-color), #2980b9);
+        }
+
+        .gate-status {
+            margin-top: 10px;
+            font-size: 0.92rem;
+            color: #2c3e50;
+            min-height: 20px;
+        }
+
+        body.access-granted .access-gate {
+            display: none;
         }
 
         /* Header Styles */
@@ -2510,7 +2592,30 @@
         }
     </style>
 </head>
-<body>
+<body class="access-locked">
+    <div id="access-gate" class="access-gate">
+        <div class="gate-card">
+            <h2>Private Portfolio Access</h2>
+            <p>This portfolio is protected. Request permission first. After approval, enter your access code to continue.</p>
+
+            <form id="access-request-form" class="gate-form">
+                <input type="text" id="requester-name" placeholder="Your full name" required>
+                <input type="email" id="requester-email" placeholder="Your email" required>
+                <textarea id="requester-purpose" placeholder="Why do you want to view this portfolio?" required></textarea>
+                <button type="submit">Request Permission</button>
+            </form>
+            <div id="request-status" class="gate-status"></div>
+
+            <hr class="gate-divider">
+
+            <form id="access-unlock-form" class="gate-form">
+                <input type="password" id="portfolio-access-code" placeholder="Enter approval code" required>
+                <button type="submit">Unlock Portfolio</button>
+            </form>
+            <div id="unlock-status" class="gate-status"></div>
+        </div>
+    </div>
+
     <!-- Header Section with Navigation -->
     <header class="header">
         <div class="logo">
@@ -4231,8 +4336,66 @@
             },
         });
 
+        const OWNER_GMAIL = 'omirahman40@gmail.com';
+        const ACCESS_CODE = 'JNR-APPROVED-2026';
+        const ACCESS_STORAGE_KEY = 'portfolio_access_granted';
+
+        function unlockPortfolio() {
+            document.body.classList.remove('access-locked');
+            document.body.classList.add('access-granted');
+            localStorage.setItem(ACCESS_STORAGE_KEY, 'true');
+        }
+
+        function initAccessGate() {
+            if (localStorage.getItem(ACCESS_STORAGE_KEY) === 'true') {
+                unlockPortfolio();
+                return;
+            }
+
+            const requestForm = document.getElementById('access-request-form');
+            const unlockForm = document.getElementById('access-unlock-form');
+            const requestStatus = document.getElementById('request-status');
+            const unlockStatus = document.getElementById('unlock-status');
+
+            requestForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+
+                const requesterName = document.getElementById('requester-name').value.trim();
+                const requesterEmail = document.getElementById('requester-email').value.trim();
+                const requesterPurpose = document.getElementById('requester-purpose').value.trim();
+
+                const params = {
+                    name: 'Portfolio Access Request',
+                    email: OWNER_GMAIL,
+                    message: 'New access request from ' + requesterName + ' (' + requesterEmail + '). Reason: ' + requesterPurpose
+                };
+
+                requestStatus.textContent = 'Sending request...';
+
+                emailjs.send('service_8t9qflj', 'template_i3kowco', params)
+                    .then(function() {
+                        requestStatus.textContent = 'Request sent. I have been notified on Gmail. Please wait for approval and code.';
+                        requestForm.reset();
+                    }, function() {
+                        requestStatus.textContent = 'Request failed to send. Please try again.';
+                    });
+            });
+
+            unlockForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const code = document.getElementById('portfolio-access-code').value.trim();
+                if (code === ACCESS_CODE) {
+                    unlockStatus.textContent = 'Access granted. Welcome.';
+                    unlockPortfolio();
+                } else {
+                    unlockStatus.textContent = 'Invalid code. Please request permission first.';
+                }
+            });
+        }
+
         // Enhanced skill bars animation
         document.addEventListener('DOMContentLoaded', function() {
+            initAccessGate();
             const skillBars = document.querySelectorAll('.skill-progress');
             const skillsSection = document.querySelector('.skills-section');
             
