@@ -3,9 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jablay Noor Rahman | Full-Stack Developer Portfolio</title>
+    <title>Jablay Noor Rahman | Portfolio</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&family=Poppins:wght@300;400;500;600;700;800;900&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -13,9 +15,169 @@
     <script type="text/javascript">
         (function() {
             emailjs.init('O1T9i9euIrwxrXkUg');
-        })(); 
+        })();
     </script>
     <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --text-color: #333;
+            --light-bg: #f9f9f9;
+            --dark-bg: #2c3e50;
+            --light-text: #fff;
+            --gray-bg: #f5f5f5;
+            --border-radius: 8px;
+            --transition-speed: 0.3s;
+            --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            --cert-blue: #1a73e8;
+            --cert-purple: #6a1b9a;
+            --cert-green: #2e7d32;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            position: relative;
+            min-height: 100vh;
+            font-weight: 400;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all var(--transition-speed) ease;
+        }
+
+        section {
+            padding: 100px 20px;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.2rem;
+            font-weight: 800;
+            margin-bottom: 50px;
+            text-align: center;
+            color: var(--secondary-color);
+            position: relative;
+            letter-spacing: -0.5px;
+            text-transform: capitalize;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 120px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, var(--accent-color) 100%);
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 12px 25px;
+            border-radius: var(--border-radius);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all var(--transition-speed) ease;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: var(--light-text);
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--light-text);
+            border: 2px solid var(--light-text);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--light-text);
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background-color: var(--dark-bg);
+            color: var(--light-text);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all var(--transition-speed) ease;
+        }
+
+        .header.scrolled {
+            padding: 10px 50px;
+            background-color: rgba(44, 62, 80, 0.95);
+        }
+
+        .logo h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.9rem;
+            color: var(--primary-color);
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
         nav ul {
             display: flex;
             list-style: none;
@@ -413,6 +575,136 @@
             transform: scale(1.2);
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
+        /* Experience Section - Enhanced */
+        .experience-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #f5576c 75%, #4facfe 100%);
+            background-size: 400% 400%;
+            animation: gradientShift 20s ease infinite;
+            position: relative;
+            overflow: hidden;
+            color: white;
+        }
+
+        .experience-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.15) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.08) 50%, transparent 70%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1.5" fill="rgba(255,255,255,0.08)"/><circle cx="50" cy="80" r="1" fill="rgba(255,255,255,0.12)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .experience-section .section-title {
+            color: white;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 2;
+        }
+
+        .experience-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .job-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .job-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #FF6B6B 0%, #4ECDC4 25%, #45B7D1 50%, #96CEB4 75%, #FECA57 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s ease;
+        }
+
+        .job-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .job-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
+        }
+
+        .job-info h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .job-info h4 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.2rem;
+            color: #3498db;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+        }
+
+        .job-date {
+            color: #7f8c8d;
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            font-weight: 500;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .job-description {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            color: #2c3e50;
+            font-size: 1.05rem;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .job-highlights {
+            padding-left: 1.5rem;
+        }
+
+        .job-highlights li {
+            margin-bottom: 0.8rem;
+            position: relative;
+            color: #34495e;
+            line-height: 1.7;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .job-highlights li::before {
+            content: "✨";
+            position: absolute;
+            left: -1.5rem;
+            top: 0;
+            font-size: 1.1rem;
+        }
+
         /* Education Section - Enhanced */
         .education-section {
             background: linear-gradient(135deg, #2E8B57 0%, #3CB371 25%, #20B2AA 50%, #4682B4 75%, #6495ED 100%);
@@ -522,7 +814,356 @@
             font-family: 'Inter', sans-serif;
         }
 
-        /* Certifications Section - Enhanced */
+        /* Skills Section - Ultra Enhanced */
+        .skills-section {
+            background: linear-gradient(135deg, 
+                #667eea 0%, #764ba2 12%, #6a11cb 25%, #2575fc 38%, 
+                #667eea 50%, #764ba2 62%, #6a11cb 75%, #2575fc 88%, #667eea 100%);
+            background-size: 600% 600%;
+            animation: gradientShift 30s ease infinite;
+            position: relative;
+            overflow: hidden;
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .skills-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                radial-gradient(circle at 20% 20%, rgba(255, 255, 255, 0.12) 0%, transparent 60%),
+                radial-gradient(circle at 80% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 50% 10%, rgba(255, 255, 255, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 10% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 45%),
+                linear-gradient(45deg, transparent 25%, rgba(255, 255, 255, 0.04) 50%, transparent 75%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><circle cx="40" cy="40" r="1.5" fill="rgba(255,255,255,0.1)"/><circle cx="160" cy="160" r="2" fill="rgba(255,255,255,0.08)"/><circle cx="100" cy="30" r="1.8" fill="rgba(255,255,255,0.09)"/><circle cx="30" cy="140" r="2.2" fill="rgba(255,255,255,0.07)"/><circle cx="170" cy="60" r="1.6" fill="rgba(255,255,255,0.11)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .skills-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="skillsGrid" width="15" height="15" patternUnits="userSpaceOnUse"><path d="M 15 0 L 0 0 0 15" fill="none" stroke="rgba(255,255,255,0.02)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23skillsGrid)"/></svg>') repeat;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .skills-section .section-title {
+            color: white;
+            text-shadow: 3px 3px 12px rgba(0,0,0,0.4);
+            position: relative;
+            z-index: 2;
+            font-family: 'Playfair Display', serif;
+            font-size: 4.2rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 80px;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .skills-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
+            gap: 60px;
+            position: relative;
+            z-index: 2;
+            padding: 40px 20px;
+        }
+
+        .skill-category {
+            margin-bottom: 60px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(15px);
+            border-radius: 30px;
+            padding: 40px;
+            border: 2px solid rgba(255, 255, 255, 0.15);
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.12);
+            box-shadow: 
+                0 30px 60px rgba(0, 0, 0, 0.25),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.25);
+        }
+
+        .skill-category h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.4rem;
+            margin-bottom: 40px;
+            color: white;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 20px;
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            font-weight: 800;
+            text-align: center;
+            width: 100%;
+        }
+
+        .skill-category h3::after {
+            content: '';
+            position: absolute;
+            width: 60%;
+            height: 4px;
+            background: linear-gradient(90deg, 
+                rgba(255,255,255,0.8) 0%, 
+                rgba(255,255,255,0.4) 50%, 
+                rgba(255,255,255,0.8) 100%);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        .skill-items {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .skill-item {
+            margin-bottom: 5px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 20px;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-item:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateX(5px);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-name {
+            display: block;
+            margin-bottom: 15px;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+            font-family: 'Poppins', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .skill-bar {
+            height: 16px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 
+                inset 0 2px 4px rgba(0, 0, 0, 0.1),
+                0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 15px;
+            position: relative;
+            overflow: hidden;
+            transition: all 2.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            box-shadow: 
+                0 0 20px rgba(255, 255, 255, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+        }
+
+        .skill-progress::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(255,255,255,0.6), 
+                transparent);
+            animation: shimmer 2.5s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { left: -100%; }
+            100% { left: 100%; }
+        }
+
+        .skill-percentage {
+            position: absolute;
+            right: 15px;
+            top: -45px;
+            font-size: 16px;
+            font-weight: 800;
+            color: white;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            padding: 8px 12px;
+            border-radius: 20px;
+            opacity: 0;
+            transition: all 0.5s ease;
+            text-shadow: none;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .skill-item:hover .skill-percentage {
+            opacity: 1;
+            transform: translateY(-5px) scale(1.05);
+        }
+
+        .skill-graph-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .skill-graph {
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 35px;
+            box-shadow: 
+                0 20px 40px rgba(0, 0, 0, 0.15),
+                inset 0 1px 0 rgba(255, 255, 255, 0.8);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .skill-graph::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, 
+                #667eea 0%, #764ba2 25%, #6a11cb 50%, #2575fc 75%, #667eea 100%);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+        }
+
+        .skill-graph:hover::before {
+            transform: scaleX(1);
+        }
+
+        .skill-graph:hover {
+            transform: translateY(-15px) scale(1.03);
+            box-shadow: 
+                0 35px 70px rgba(0, 0, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .graph-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            color: #667eea;
+            text-align: center;
+            font-weight: 700;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .graph-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+            gap: 20px;
+        }
+
+        .graph-item {
+            text-align: center;
+            padding: 25px 20px;
+            border-radius: 20px;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 2px solid rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .graph-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(102, 126, 234, 0.1), 
+                transparent);
+            transition: left 0.5s ease;
+        }
+
+        .graph-item:hover::before {
+            left: 100%;
+        }
+
+        .graph-item:hover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            transform: translateY(-8px) scale(1.08);
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.4);
+            border-color: rgba(255, 255, 255, 0.3);
+        }
+
+        .graph-item i {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #667eea;
+            transition: all 0.4s ease;
+        }
+
+        .graph-item:hover i {
+            color: white;
+            transform: scale(1.2) rotate(10deg);
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+
+        .graph-item p {
+            font-size: 1rem;
+            font-weight: 700;
+            margin: 0;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        /* Certifications Section */
         .certifications-section {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 100px 20px;
@@ -1127,31 +1768,18 @@
             transform: scale(1.4) !important;
         }
 
-        /* Skills Section - Enhanced with Graphs & Charts */
-        .skills-section {
-            background: linear-gradient(135deg, 
-                #f5f7fa 0%, 
-                #c3cfe2 25%, 
-                #e0c3fc 50%, 
-                #8ec5fc 75%, 
-                #c3cfe2 100%);
+        /* Volunteering Section - Enhanced */
+        .volunteering-section {
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #FF7F50 0%, #FF6347 25%, #DC143C 50%, #B22222 75%, #8B0000 100%);
             background-size: 400% 400%;
-            animation: gradientFlow 20s ease infinite;
-            padding: 120px 20px;
+            animation: gradientShift 35s ease infinite;
+            color: white;
             position: relative;
             overflow: hidden;
         }
 
-        @keyframes gradientFlow {
-            0%, 100% {
-                background-position: 0% 50%;
-            }
-            50% {
-                background-position: 100% 50%;
-            }
-        }
-
-        .skills-section::before {
+        .volunteering-section::before {
             content: '';
             position: absolute;
             top: 0;
@@ -1159,526 +1787,232 @@
             right: 0;
             bottom: 0;
             background: 
-                radial-gradient(circle at 20% 30%, rgba(52, 152, 219, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(155, 89, 182, 0.12) 0%, transparent 50%),
-                radial-gradient(circle at 50% 50%, rgba(46, 204, 113, 0.08) 0%, transparent 60%),
-                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1.5" fill="rgba(52,152,219,0.15)"/><circle cx="75" cy="50" r="2" fill="rgba(155,89,182,0.15)"/><circle cx="50" cy="80" r="1.5" fill="rgba(46,204,113,0.15)"/><circle cx="10" cy="60" r="1" fill="rgba(243,156,18,0.12)"/><circle cx="90" cy="20" r="1.2" fill="rgba(231,76,60,0.12)"/></svg>') repeat;
+                radial-gradient(circle at 25% 25%, rgba(255, 255, 255, 0.12) 0%, transparent 50%),
+                radial-gradient(circle at 75% 75%, rgba(255, 255, 255, 0.08) 0%, transparent 50%),
+                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,20 L30,15 L40,20 L35,30 L25,30 Z" fill="rgba(255,255,255,0.04)"/><path d="M70,40 L80,35 L90,40 L85,50 L75,50 Z" fill="rgba(255,255,255,0.06)"/><path d="M45,70 L55,65 L65,70 L60,80 L50,80 Z" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
             pointer-events: none;
             z-index: 0;
-            animation: floatPattern 30s ease-in-out infinite;
         }
 
-        @keyframes floatPattern {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                transform: translateY(-20px) scale(1.05);
-            }
-        }
-
-        .skills-section::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(180deg, 
-                rgba(255,255,255,0.05) 0%, 
-                transparent 50%, 
-                rgba(0,0,0,0.02) 100%);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        .skills-section .section-title {
-            color: #2c3e50;
-            text-shadow: 
-                2px 2px 4px rgba(0,0,0,0.1),
-                0 0 30px rgba(255,255,255,0.8);
-            position: relative;
-            z-index: 2;
-            font-size: 3.5rem;
-            margin-bottom: 70px;
-        }
-
-        .skills-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(600px, 1fr));
-            gap: 40px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .skill-category {
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(15px) saturate(180%);
-            border-radius: 25px;
-            padding: 45px;
-            box-shadow: 
-                0 20px 60px rgba(0, 0, 0, 0.12),
-                0 8px 25px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
-            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 2px solid rgba(255, 255, 255, 0.6);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .skill-category::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 6px;
-            background: linear-gradient(90deg, 
-                #3498db 0%, 
-                #9b59b6 25%, 
-                #2ecc71 50%, 
-                #f39c12 75%, 
-                #e74c3c 100%);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
-        }
-
-        .skill-category::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(52, 152, 219, 0.05) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.5s ease;
-        }
-
-        .skill-category:hover::before {
-            transform: scaleX(1);
-        }
-
-        .skill-category:hover::after {
-            opacity: 1;
-        }
-
-        .skill-category:hover {
-            transform: translateY(-12px) scale(1.02);
-            box-shadow: 
-                0 30px 80px rgba(52, 152, 219, 0.18),
-                0 15px 40px rgba(0, 0, 0, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 1);
-            border-color: rgba(52, 152, 219, 0.4);
-        }
-
-        .skill-category h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: #2c3e50;
-            margin-bottom: 35px;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 18px;
-            letter-spacing: 0.5px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .skill-category h3::before {
-            content: '●';
-            color: #3498db;
-            font-size: 1.5rem;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 0.6;
-                transform: scale(1.2);
-            }
-        }
-
-        .skill-category h3::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, 
-                #3498db 0%, 
-                #2ecc71 50%, 
-                #f39c12 100%);
-            border-radius: 3px;
-            box-shadow: 0 2px 8px rgba(52, 152, 219, 0.4);
-        }
-
-        .skill-items {
-            display: flex;
-            flex-direction: column;
-            gap: 28px;
-        }
-
-        .skill-items .skill-item {
-            animation: slideInRight 0.8s ease forwards;
-            opacity: 0;
-        }
-
-        @keyframes slideInRight {
-            0% {
-                opacity: 0;
-                transform: translateX(-30px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(0);
-            }
-        }
-
-        .skill-items .skill-item:nth-child(1) { animation-delay: 0.1s; }
-        .skill-items .skill-item:nth-child(2) { animation-delay: 0.2s; }
-        .skill-items .skill-item:nth-child(3) { animation-delay: 0.3s; }
-        .skill-items .skill-item:nth-child(4) { animation-delay: 0.4s; }
-        .skill-items .skill-item:nth-child(5) { animation-delay: 0.5s; }
-        .skill-items .skill-item:nth-child(6) { animation-delay: 0.6s; }
-
-        .skill-item {
-            position: relative;
-            padding: 8px 0;
-        }
-
-        .skill-item::before {
-            content: '';
-            position: absolute;
-            left: -15px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 6px;
-            height: 6px;
-            background: linear-gradient(135deg, #3498db, #2ecc71);
-            border-radius: 50%;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .skill-item:hover::before {
-            opacity: 1;
-        }
-
-        .skill-name {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1.15rem;
-            color: #2c3e50;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            margin-bottom: 14px;
-            transition: all 0.3s ease;
-            letter-spacing: 0.3px;
-        }
-
-        .skill-name::before {
-            content: '▸';
-            margin-right: 10px;
-            color: #3498db;
-            font-size: 1.3rem;
-            transition: all 0.3s ease;
-        }
-
-        .skill-item:hover .skill-name {
-            color: #3498db;
-            transform: translateX(5px);
-        }
-
-        .skill-item:hover .skill-name::before {
-            transform: translateX(5px);
-            color: #2ecc71;
-        }
-
-        .skill-bar {
-            position: relative;
-            height: 40px;
-            background: linear-gradient(135deg, #ecf0f1 0%, #d5d8dc 100%);
-            border-radius: 25px;
-            overflow: visible;
-            box-shadow: 
-                inset 0 3px 8px rgba(0, 0, 0, 0.12),
-                0 2px 8px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.8);
-        }
-
-        .skill-progress {
-            position: absolute;
-            height: 100%;
-            border-radius: 25px;
-            display: flex;
-            align-items: center;
-            justify-content: flex-end;
-            padding-right: 18px;
-            transition: all 1.8s cubic-bezier(0.34, 1.56, 0.64, 1);
-            box-shadow: 
-                0 3px 15px rgba(0, 0, 0, 0.25),
-                inset 0 -2px 8px rgba(0, 0, 0, 0.1),
-                inset 0 2px 8px rgba(255, 255, 255, 0.3);
-            position: relative;
-            overflow: hidden;
-            transform-origin: left;
-        }
-
-        .skill-progress::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255,255,255,0.5), 
-                transparent);
-            animation: shimmer 2.5s infinite ease-in-out;
-        }
-
-        .skill-progress::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 50%;
-            background: linear-gradient(180deg, 
-                rgba(255,255,255,0.4) 0%, 
-                rgba(255,255,255,0) 100%);
-            border-radius: 25px 25px 0 0;
-        }
-
-        @keyframes shimmer {
-            0% { left: -100%; }
-            50% { left: 100%; }
-            100% { left: 100%; }
-        }
-
-        @keyframes fillBar {
-            0% {
-                transform: scaleX(0);
-                opacity: 0;
-            }
-            50% {
-                opacity: 1;
-            }
-            100% {
-                transform: scaleX(1);
-                opacity: 1;
-            }
-        }
-
-        .skill-percentage {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
+        .volunteering-section .section-title {
             color: white;
-            text-shadow: 
-                1px 1px 3px rgba(0,0,0,0.5),
-                0 0 10px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 800;
             position: relative;
-            z-index: 3;
-            letter-spacing: 0.5px;
+            z-index: 2;
         }
 
-        /* Skill Graph Container Styles */
-        .skill-graph-container {
+        .volunteering-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volunteering-intro {
+            text-align: center;
+            margin-bottom: 60px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .volunteering-intro p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.95;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+            font-family: 'Inter', sans-serif;
+        }
+
+        .volunteering-hero-img {
+            max-width: 600px;
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: 3px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .volunteering-hero-img:hover {
+            transform: scale(1.05) rotate(1deg);
+            box-shadow: 0 35px 70px rgba(0, 0, 0, 0.5);
+        }
+
+        .volunteering-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
             gap: 30px;
-            margin-top: 30px;
+            margin-bottom: 60px;
         }
 
-        .skill-graph {
-            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+        .volunteer-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
             border-radius: 20px;
             padding: 35px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-            border: 2px solid rgba(52, 152, 219, 0.1);
             position: relative;
             overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
         }
 
-        .skill-graph::before {
+        .volunteer-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             right: 0;
             height: 4px;
-            background: linear-gradient(90deg, #3498db 0%, #2ecc71 50%, #f39c12 100%);
+            background: linear-gradient(90deg, #FFD700 0%, #FF6347 25%, #FF69B4 50%, #00CED1 75%, #98FB98 100%);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.4s ease;
+            transition: transform 0.3s ease;
         }
 
-        .skill-graph:hover::before {
+        .volunteer-card:hover::before {
             transform: scaleX(1);
         }
 
-        .skill-graph:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-            border-color: rgba(52, 152, 219, 0.3);
+        .volunteer-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.25);
+            border-color: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.2);
         }
 
-        .graph-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.5rem;
-            color: #2c3e50;
-            margin-bottom: 25px;
-            text-align: center;
-            font-weight: 700;
-            position: relative;
-            padding-bottom: 15px;
-        }
-
-        .graph-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #3498db 0%, #2ecc71 100%);
-            border-radius: 2px;
-        }
-
-        .graph-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 20px;
-        }
-
-        .graph-item {
+        .volunteer-header {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
-            padding: 25px;
-            background: linear-gradient(145deg, 
-                #ffffff 0%, 
-                #f8f9fa 50%, 
-                #e9ecef 100%);
-            border-radius: 18px;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            border: 2px solid transparent;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 
-                0 4px 15px rgba(0, 0, 0, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            margin-bottom: 25px;
+            flex-wrap: wrap;
         }
 
-        .graph-item::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(52, 152, 219, 0.15) 0%, 
-                rgba(46, 204, 113, 0.15) 100%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .graph-item::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            right: -50%;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, 
-                rgba(52, 152, 219, 0.2) 0%, 
-                transparent 70%);
-            opacity: 0;
-            transition: opacity 0.4s ease;
-        }
-
-        .graph-item:hover::before,
-        .graph-item:hover::after {
-            opacity: 1;
-        }
-
-        .graph-item:hover {
-            transform: translateY(-10px) scale(1.08);
-            box-shadow: 
-                0 20px 40px rgba(52, 152, 219, 0.2),
-                0 8px 20px rgba(0, 0, 0, 0.12),
-                inset 0 1px 0 rgba(255, 255, 255, 1);
-            border-color: rgba(52, 152, 219, 0.5);
-        }
-
-        .graph-item i {
-            font-size: 3rem;
-            background: linear-gradient(135deg, #3498db 0%, #2ecc71 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 15px;
-            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
-            position: relative;
-            z-index: 2;
-            filter: drop-shadow(0 2px 4px rgba(52, 152, 219, 0.3));
-        }
-
-        .graph-item:hover i {
-            transform: scale(1.25) rotate(8deg);
-            filter: drop-shadow(0 4px 8px rgba(52, 152, 219, 0.5));
-        }
-
-        .graph-item p {
-            font-family: 'Poppins', sans-serif;
-            font-size: 1rem;
-            color: #2c3e50;
-            font-weight: 600;
-            text-align: center;
+        .volunteer-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.6rem;
             margin: 0;
-            position: relative;
-            z-index: 2;
-            letter-spacing: 0.3px;
+            color: #fff;
+            font-weight: 700;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        .volunteer-type {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(5px);
+            padding: 8px 18px;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .volunteer-content p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .volunteer-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .volunteer-content li {
+            margin-bottom: 8px;
+            line-height: 1.5;
+        }
+
+        .volunteer-content strong {
+            color: #ffd700;
+        }
+
+        .volunteering-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 30px 20px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
             transition: all 0.3s ease;
         }
 
-        .graph-item:hover p {
-            color: #3498db;
-            transform: scale(1.05);
+        .stat-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Animation Classes */
-        .animate-grow {
-            opacity: 0;
-            transform: scale(0.8);
-            animation: growIn 0.6s ease forwards;
+        .stat-item h4 {
+            font-size: 3rem;
+            margin: 0 0 10px 0;
+            color: #ffd700;
+            font-weight: 700;
         }
 
-        @keyframes growIn {
-            0% {
-                opacity: 0;
-                transform: scale(0.8);
+        .stat-item p {
+            font-size: 1.1rem;
+            margin: 0;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 768px) {
+            .volunteering-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
             }
-            100% {
-                opacity: 1;
-                transform: scale(1);
+
+            .volunteer-card {
+                padding: 20px;
+            }
+
+            .volunteer-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+
+            .volunteer-header h3 {
+                font-size: 1.3rem;
+            }
+
+            .volunteering-stats {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .stat-item h4 {
+                font-size: 2.5rem;
+            }
+
+            .volunteering-hero-img {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .volunteering-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .volunteer-card {
+                padding: 15px;
             }
         }
 
@@ -1690,7 +2024,6 @@
             position: relative;
             overflow: hidden;
             color: white;
-            padding: 100px 20px;
         }
 
         .contact-section::before {
@@ -1711,17 +2044,12 @@
 
         .contact-section .section-title {
             color: white;
-            text-shadow: 3px 3px 10px rgba(0,0,0,0.3);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.3);
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             font-weight: 800;
             position: relative;
             z-index: 2;
-            margin-bottom: 70px;
-        }
-
-        .contact-section .section-title::after {
-            background: linear-gradient(90deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.4));
         }
 
         .contact-container {
@@ -1731,20 +2059,18 @@
             gap: 50px;
             position: relative;
             z-index: 2;
-            align-items: flex-start;
         }
 
         .contact-form {
             flex: 2;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(20px);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
             padding: 50px;
-            border-radius: 25px;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             position: relative;
             overflow: hidden;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .contact-form::before {
@@ -1753,59 +2079,33 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, #8360c3 0%, #2ebf91 25%, #3742fa 50%, #2ed573 75%, #5352ed 100%);
-            animation: slideRight 3s ease infinite;
-        }
-
-        @keyframes slideRight {
-            0%, 100% { transform: translateX(-100%); }
-            50% { transform: translateX(100%); }
-        }
-
-        .contact-form:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.25);
         }
 
         .form-group {
             margin-bottom: 30px;
-            position: relative;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             font-weight: 700;
             color: var(--secondary-color);
             font-family: 'Poppins', sans-serif;
             font-size: 1.1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-group label::before {
-            content: '●';
-            color: var(--primary-color);
-            margin-right: 8px;
-            font-size: 0.8rem;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 16px 20px;
+            padding: 15px 20px;
             border: 2px solid #e9ecef;
             border-radius: 15px;
             font-family: 'Inter', sans-serif;
             font-size: 1rem;
             transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             background: #f8f9fa;
-            color: var(--text-color);
-        }
-
-        .form-group input::placeholder,
-        .form-group textarea::placeholder {
-            color: #95a5a6;
         }
 
         .form-group input:focus,
@@ -1813,32 +2113,25 @@
             outline: none;
             border-color: var(--primary-color);
             background: white;
-            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1), 0 8px 20px rgba(0,0,0,0.08);
+            box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.1), 0 5px 15px rgba(0,0,0,0.1);
             transform: translateY(-2px);
         }
 
-        .form-group textarea {
-            resize: vertical;
-            min-height: 150px;
-        }
-
         .btn-submit {
-            padding: 16px 40px;
+            padding: 15px 35px;
             background: linear-gradient(135deg, var(--primary-color) 0%, #2980b9 100%);
             color: var(--light-text);
             border: none;
-            border-radius: 30px;
+            border-radius: 25px;
             cursor: pointer;
             font-size: 1.1rem;
             font-weight: 700;
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             font-family: 'Poppins', sans-serif;
             position: relative;
             overflow: hidden;
-            box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
-            width: 100%;
         }
 
         .btn-submit::before {
@@ -1849,7 +2142,7 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-            transition: left 0.6s ease;
+            transition: left 0.5s ease;
         }
 
         .btn-submit:hover::before {
@@ -1858,28 +2151,22 @@
 
         .btn-submit:hover {
             background: linear-gradient(135deg, var(--secondary-color) 0%, #34495e 100%);
-            transform: translateY(-3px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(44, 62, 80, 0.3);
-        }
-
-        .btn-submit:active {
-            transform: translateY(-1px) scale(0.98);
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
         }
 
         .contact-info {
             flex: 1;
-            background: linear-gradient(135deg, rgba(44, 62, 80, 0.98) 0%, rgba(52, 73, 94, 0.98) 100%);
-            backdrop-filter: blur(20px);
+            background: rgba(44, 62, 80, 0.95);
+            backdrop-filter: blur(15px);
             color: var(--light-text);
             padding: 50px;
-            border-radius: 25px;
+            border-radius: 20px;
             display: flex;
             flex-direction: column;
-            border: 2px solid rgba(255, 255, 255, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             overflow: hidden;
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
-            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
 
         .contact-info::before {
@@ -1888,34 +2175,28 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 5px;
+            height: 4px;
             background: linear-gradient(90deg, #8360c3 0%, #2ebf91 25%, #3742fa 50%, #2ed573 75%, #5352ed 100%);
-        }
-
-        .contact-info:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 35px 80px rgba(0, 0, 0, 0.4);
         }
 
         .contact-info h3 {
             font-family: 'Playfair Display', serif;
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 35px;
             color: var(--primary-color);
             position: relative;
-            padding-bottom: 20px;
+            padding-bottom: 15px;
             font-weight: 700;
         }
 
         .contact-info h3::after {
             content: '';
             position: absolute;
-            width: 80px;
-            height: 4px;
-            background: linear-gradient(90deg, var(--primary-color) 0%, rgba(52, 152, 219, 0.3) 100%);
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color) 0%, rgba(52, 152, 219, 0.5) 100%);
             bottom: 0;
             left: 0;
-            border-radius: 2px;
         }
 
         .contact-details {
@@ -1930,117 +2211,50 @@
             align-items: flex-start;
             gap: 20px;
             padding: 20px;
-            background: rgba(255, 255, 255, 0.08);
+            background: rgba(255, 255, 255, 0.05);
             border-radius: 15px;
             transition: all 0.3s ease;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .contact-item::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 4px;
-            background: linear-gradient(180deg, var(--primary-color), #2ecc71);
-            transform: scaleY(0);
-            transition: transform 0.3s ease;
-        }
-
-        .contact-item:hover::before {
-            transform: scaleY(1);
         }
 
         .contact-item:hover {
-            background: rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.1);
             transform: translateX(10px);
-            border-color: rgba(255, 255, 255, 0.2);
         }
 
         .contact-item i {
             color: var(--primary-color);
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             margin-top: 5px;
-            padding: 12px;
-            background: rgba(52, 152, 219, 0.15);
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .contact-item:hover i {
-            background: rgba(52, 152, 219, 0.25);
-            transform: scale(1.1) rotate(5deg);
+            padding: 10px;
+            background: rgba(52, 152, 219, 0.1);
+            border-radius: 10px;
         }
 
         .contact-item p {
             margin: 0;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            font-size: 1rem;
         }
 
         .contact-item a {
             color: var(--primary-color);
             transition: all 0.3s ease;
             font-weight: 600;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .contact-item a::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: white;
-            transition: width 0.3s ease;
         }
 
         .contact-item a:hover {
             color: white;
-        }
-
-        .contact-item a:hover::after {
-            width: 100%;
+            text-decoration: underline;
         }
         
-        .contact-map {
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(255,255,255,0.15);
-        }
-
         .map-title {
-            font-size: 1.4rem;
-            margin-bottom: 15px;
+            margin-top: 30px;
+            font-size: 1.3rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 25px;
             font-family: 'Playfair Display', serif;
             font-weight: 600;
-            color: white;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .map-title i {
-            color: var(--primary-color);
-            font-size: 1.3rem;
-        }
-
-        .contact-map iframe {
-            border-radius: 15px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
-        }
-
-        .contact-map iframe:hover {
-            transform: scale(1.02);
-            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
         }
 
         /* Footer */
@@ -2218,15 +2432,6 @@
             .skills-container {
                 grid-template-columns: 1fr;
             }
-
-            .contact-form,
-            .contact-info {
-                width: 100%;
-            }
-
-            .contact-info {
-                margin-top: 30px;
-            }
         }
 
         @media (max-width: 768px) {
@@ -2269,15 +2474,6 @@
             .projects-slider {
                 padding: 0 20px;
             }
-
-            .contact-form,
-            .contact-info {
-                padding: 35px 25px;
-            }
-
-            .contact-section .section-title {
-                font-size: 2.5rem;
-            }
         }
 
         @media (max-width: 480px) {
@@ -2299,167 +2495,7 @@
             .project-card h3, .cert-header h3 {
                 font-size: 1.4rem;
             }
-
-            .contact-form,
-            .contact-info {
-                padding: 25px 20px;
-            }
-
-            .contact-info h3 {
-                font-size: 1.8rem;
-            }
-
-            .form-group label {
-                font-size: 1rem;
-            }
-
-            .form-group input,
-            .form-group textarea {
-                padding: 14px 18px;
-                font-size: 0.95rem;
-            }
-
-            .btn-submit {
-                padding: 14px 30px;
-                font-size: 1rem;
-            }
-
-            .contact-item {
-                padding: 15px;
-                gap: 15px;
-            }
-
-            .contact-item i {
-                font-size: 1.3rem;
-                padding: 10px;
-            }
-
-            .map-title {
-                font-size: 1.2rem;
-            }
         }
-
-        /* Responsive Design for Skills Section */
-        @media (max-width: 1200px) {
-            .skills-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .skill-graph-container {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            }
-        }
-
-        @media (max-width: 768px) {
-            .skills-section {
-                padding: 80px 20px;
-            }
-
-            .skills-section .section-title {
-                font-size: 2.5rem;
-                margin-bottom: 50px;
-            }
-
-            .skill-category {
-                padding: 35px 25px;
-            }
-
-            .skill-category h3 {
-                font-size: 1.6rem;
-                margin-bottom: 28px;
-            }
-
-            .skill-name {
-                font-size: 1rem;
-            }
-
-            .skill-bar {
-                height: 35px;
-            }
-
-            .skill-percentage {
-                font-size: 0.9rem;
-                padding-right: 12px;
-            }
-
-            .graph-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 15px;
-            }
-
-            .graph-item {
-                padding: 18px;
-            }
-
-            .graph-item i {
-                font-size: 2.2rem;
-            }
-
-            .graph-item p {
-                font-size: 0.9rem;
-            }
-
-            .skill-graph-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .skills-container {
-                gap: 30px;
-            }
-
-            .skills-section .section-title {
-                font-size: 2rem;
-            }
-
-            .skill-category {
-                padding: 25px 20px;
-            }
-
-            .skill-category h3 {
-                font-size: 1.4rem;
-            }
-
-            .skill-items {
-                gap: 22px;
-            }
-
-            .skill-name {
-                font-size: 0.95rem;
-            }
-
-            .skill-bar {
-                height: 32px;
-            }
-
-            .skill-percentage {
-                font-size: 0.85rem;
-            }
-
-            .graph-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .graph-item {
-                padding: 20px;
-            }
-
-            .graph-item i {
-                font-size: 2.5rem;
-            }
-
-            .graph-item p {
-                font-size: 0.95rem;
-            }
-
-            .graph-title {
-                font-size: 1.3rem;
-            }
-        }
-
-        /* ...existing code... */
     </style>
 </head>
 <body>
@@ -2474,6 +2510,7 @@
                 <li><a href="#about" class="nav-link">About</a></li>
                 <li><a href="#education" class="nav-link">Education</a></li>
                 <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#volunteering" class="nav-link">Volunteering</a></li>
                 <li><a href="#certifications" class="nav-link">Certifications</a></li>
                 <li><a href="#projects" class="nav-link">Projects</a></li>
                 <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -2485,13 +2522,10 @@
     <section id="home" class="hero">
         <div class="hero-content">
             <h2 class="animate-slide-down">Welcome to My Portfolio</h2>
-            <p class="animate-slide-up">Full-Stack Developer & AI Enthusiast</p>
+            <p class="animate-slide-up">Web Developer & Problem Solver</p>
             <div class="hero-buttons animate-fade-in">
                 <a href="#projects" class="btn btn-primary">View Projects</a>
                 <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                <a href="https://drive.google.com/file/d/1k-T4WlnGazPzyn3mEg1agOzCsHPZF3u5/view" class="btn btn-resume" target="_blank" rel="noopener noreferrer">
-                    <i class="fas fa-file-download"></i> Resume
-                </a>
             </div>
         </div>
     </section>
@@ -2504,11 +2538,11 @@
                 <img src="./Images/OMI FB PICTURE -01.jpg" alt="Jablay Noor Rahman Profile Picture">
             </div>
             <div class="about-text">
-                <p class="animate-slide-right">Hello! I'm <span class="highlight">Jablay Noor Rahman</span>, a Undergrad 4th year Information and Communication Engineering (ICE) student at <span class="highlight">Bangladesh University of Professionals (BUP)</span> with a current CGPA of 3.50/4.00. I am a passionate full-stack developer and software engineer with expertise in creating innovative digital solutions that solve real-world problems.</p>
+                <p class="animate-slide-right">Hello! I'm <span class="highlight">Jablay Noor Rahman</span>, a 4th year Information and Communication Technology student at <span class="highlight">Bangladesh University of Professionals (BUP)</span> with a current CGPA of 3.47/4.00. I am a passionate full-stack developer and software engineer with expertise in creating innovative digital solutions that solve real-world problems.</p>
                 
                 <p class="animate-slide-right delay-100">My journey in technology spans <span class="highlight">web development, mobile app development, AI integration, and cloud computing</span>. I specialize in building responsive, user-friendly applications using modern technologies like <span class="highlight">PHP, MySQL, Java, Python, HTML5, CSS3, JavaScript, and React</span>. I have hands-on experience with <span class="highlight">Android development, machine learning frameworks, and cloud platforms</span>.</p>
                 
-                <p class="animate-slide-right delay-200">Beyond coding, I'm deeply committed to collaboration, mentoring, and building technology that supports learning, problem-solving, and community growth.</p>
+                <p class="animate-slide-right delay-200">Beyond coding, I'm deeply committed to <span class="highlight">community service and youth empowerment</span>. I've volunteered with organizations like Youth's Voice, Amnesty International, and Bidyanondo Foundation, contributing to human rights advocacy, education initiatives, and social welfare programs. I've helped <span class="highlight">empower over 1400+ individuals</span> through various programs and digital campaigns.</p>
                 
                 <p class="animate-slide-right delay-300">I keep building my skills through continuous learning, technical projects, and hands-on experimentation across software development, AI, and cloud-based solutions.</p>
                 
@@ -2532,12 +2566,12 @@
                 <h3>Bachelor of Science in Information and Communication Technology</h3>
                 <h4>Bangladesh University of Professionals (BUP)</h4>
                 <p class="education-date">2022 - Present</p>
-                <p>Focusing on Software Engineering, Database Management, and Web Technologies. Current CGPA: 3.50/4.00</p>
+                <p>Focusing on Software Engineering, Database Management, and Web Technologies. Current CGPA: 3.47/4.00</p>
             </div>
             <div class="education-card animate-card delay-100">
                 <h3>Higher Secondary Certificate (HSC)</h3>
                 <h4>Chittagong College</h4>
-                <p class="education-date">2019 - 2021</p>
+                <p class="education-date">2020 - 2021</p>
                 <p>Science Group with focus on Mathematics and Physics. GPA: 5.00/5.00</p>
             </div>
             <div class="education-card animate-card delay-200">
@@ -2549,8 +2583,417 @@
         </div>
     </section>
 
+    <!-- Skills Section - Enhanced -->
+    <section id="skills" class="skills-section">
+        <h2 class="section-title">My Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category">
+                <h3>Programming & Web Development</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Java</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">PHP & MySQL</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">JavaScript & React</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">HTML5/CSS3</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Python</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 78%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">78%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Android Development</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Shell Scripting & Linux</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Design & Creative</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Adobe Illustrator</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Adobe Photoshop</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">UI/UX Design</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Corporate Etiquette & Communication</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 92%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
+                            <span class="skill-percentage">92%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Data Science & AI</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Machine Learning & Deep Learning</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">75%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Data Analysis & Visualization</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">80%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Google AI & Speech Recognition</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 77%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">77%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">API Integration & Development</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 83%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
+                            <span class="skill-percentage">83%</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3>Cloud & DevOps</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">CompTIA Cloud+ Advanced</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                     <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Cybersecurity & Network Fundamentals</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 87%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
+                            <span class="skill-percentage">87%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Digital Marketing & SEO</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 82%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
+                            <span class="skill-percentage">82%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="skills-container" style="margin-top: 40px;">
+            <div class="skill-category">
+                <h3>Soft Skills & Leadership</h3>
+                <div class="skill-items">
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Communication & Public Speaking</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 95%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">95%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Leadership & Team Management</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">90%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Project Management</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">85%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow">
+                        <span class="skill-name">Problem Solving & Critical Thinking</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 88%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">88%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-100">
+                        <span class="skill-name">Content Creation & Technical Writing</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 93%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">93%</span>
+                        </div>
+                    </div>
+                    <div class="skill-item animate-grow delay-200">
+                        <span class="skill-name">Multilingual Communication</span>
+                        <div class="skill-bar">
+                            <div class="skill-progress" style="width: 89%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
+                            <span class="skill-percentage">89%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="skill-category">
+                <h3>Technical Proficiency</h3>
+                <div class="skill-graph-container">
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Databases</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fas fa-database"></i>
+                                <p>MySQL</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-leaf"></i>
+                                <p>MongoDB</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-server"></i>
+                                <p>SQL Server</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Frameworks & Libraries</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fab fa-react"></i>
+                                <p>React</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fab fa-node-js"></i>
+                                <p>Node.js</p>
+                            </div>
+                             <div class="graph-item">
+                                <i class="fab fa-android"></i>
+                                <p>Android SDK</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Tools & Platforms</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fab fa-git-alt"></i>
+                                <p>Git & GitHub</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fab fa-linux"></i>
+                                <p>Linux & Shell</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fab fa-google"></i>
+                                <p>Google AI</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="skill-graph">
+                        <h4 class="graph-title">Software & Applications</h4>
+                        <div class="graph-grid">
+                            <div class="graph-item">
+                                <i class="fas fa-file-excel"></i>
+                                <p>MS Office Suite</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-cloud"></i>
+                                <p>Cloud Platforms</p>
+                            </div>
+                            <div class="graph-item">
+                                <i class="fas fa-palette"></i>
+                                <p>Adobe Creative</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Certifications Section -->
     <section id="certifications" class="certifications-section">
+        <h2 class="section-title">Courses & Certifications</h2>
+        <div class="certifications-slider swiper">
+            <div class="swiper-wrapper">
+                <!-- Certificate 1: Adobe Illustrator -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate1.png" alt="Adobe Illustrator Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🎨 Adobe Illustrator Certified</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Excited to share my certification in Adobe Illustrator! Mastered shape creation, Pen Tool techniques, color theory, professional illustration, and advanced design tools.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Shape Creation & Manipulation</li>
+                                        <li>Advanced Pen Tool Techniques</li>
+                                        <li>Color Theory & Gradients</li>
+                                        <li>Professional Illustration</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689b91...</span>
+                                <a href="https://10minuteschool.com/certificate/689b91998d31a" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 2: Basics of Management -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate2.png" alt="Basics of Management Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>📊 Basics of Management</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This certificate verifies comprehensive knowledge in core management principles. Endorsed by CEO Ayman Sadiq and instructor Dr. Sutapa Bhattacharjee, highlighting foundational skills in leadership, planning, and organizational strategies.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Leadership Fundamentals</li>
+                                        <li>Strategic Planning</li>
+                                        <li>Organizational Strategies</li>
+                                        <li>Team Coordination</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689a52...</span>
+                                <a href="https://10minuteschool.com/certificate/689a52b36cb1d" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 3: Machine Learning -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate3.png" alt="Machine Learning Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🤖 Machine Learning Algorithms</h3>
+                                <p>UniAthena & Cambridge</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed the Basics of Machine Learning Algorithms course. Developed and delivered by UniAthena in partnership with Cambridge International Qualifications, UK. Certificate issued on August 11, 2025. Blockchain-verified with authenticity verifiable by QR code scan.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Core ML Concepts</li>
+                                        <li>Algorithm Fundamentals</li>
+                                        <li>Data Preprocessing</li>
+                                        <li>Blockchain Verification</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Blockchain ID: 6152-54...</span>
+                                <a href="https://docs.uniathena.com/prod/course/certificate/322_1754932628_certificate.jpg" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 4: Basics of Python -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                         <img src="Images/Certificate4.png" alt="Basics of Python Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🐍 Basics of Python</h3>
+                                <p>UniAthena & Cambridge</p>
+                            </div>
+                            <div class="cert-details">
+                               <p>Successfully completed the "Basics of Python" course on August 11, 2025. Developed and delivered by UniAthena in partnership with Cambridge International Qualifications, UK. The certificate is blockchain verified, and authenticity can be confirmed by scanning the QR code.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Python Syntax & Structure</li>
+                                        <li>Data Types and Structures</li>
+                                        <li>Control Flow Statements</li>
+                                        <li>Basic Algorithm Implementation</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Blockchain ID: 4774-83...</span>
+                                <a href="https://docs.uniathena.com/prod/course/certificate/323_1754932842_certificate.jpg" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 5: Business Email -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate5.png" alt="Business Email Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>📧 Business Email</h3>
+                                <p>HP LIFE</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Earned HP LIFE certification in Business Email, demonstrating proficiency in crafting structured, purpose-driven communications for professional and client-facing contexts. Emphasized clarity, tone, and actionable messaging aligned with business objectives.</p>
                                 <div class="skills-learned">
                                     <h4>Skills Learned:</h4>
                                     <ul>
@@ -2561,6 +3004,57 @@
                                     </ul>
                                 </div>
                             </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 0e0380...</span>
+                                <a href="https://www.life-global.org/certificate/0e03808b-fea0-419a-8c27-4056c5544fc5" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 6: C Programming -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate6.png" alt="C Programming Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>💻 C Programming</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Jablay Noor Rahman has successfully completed The First C Programming, a free online course by 10 Minute School, gaining foundational C programming skills. Endorsed by CEO Ayman Sadiq and instructors Md Farhan Tanvir and Monjurul Ahsan Nobel.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>C Syntax and Semantics</li>
+                                        <li>Data Types and Variables</li>
+                                        <li>Control Structures (Loops, Conditionals)</li>
+                                        <li>Functions and Modular Programming</li>
+                                    </ul>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <a href="https://10minuteschool.com/certificate/689a681f1a3b6" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 7: Communication Hacks -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate7.png" alt="Communication Hacks Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>💬 Communication Hacks</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Jablay Noor Rahman successfully completed Communication Hacks by 10 Minute School, gaining practical communication strategies. Certificate ID 689a6223119f7 issued 12 Aug 2025. Endorsed by CEO Ayman Sadiq & instructor Sadman Sadik.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
                                         <li>Effective Listening Techniques</li>
                                         <li>Verbal & Non-verbal Cues</li>
                                         <li>Conflict Resolution</li>
@@ -2707,6 +3201,137 @@
                                     <h4>Skills Learned:</h4>
                                     <ul>
                                         <li>Leadership Strategies</li>
+                                        <li>Ethical Decision-Making</li>
+                                        <li>Team Management</li>
+                                        <li>Motivational Techniques</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 40112e...</span>
+                                <a href="https://www.life-global.org/certificate/40112e5a-eea6-4102-97c0-fe841a97c232" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 13: Essentials of AI -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate13.png" alt="Essentials of AI Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🤖 Essentials of AI</h3>
+                                <p>UniAthena & Cambridge</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Jablay Noor Rahman has successfully completed Essentials of AI Learning Frameworks & Advanced Models from Cambridge International Qualifications (UK) and UniAthena. This blockchain-verified certification (ID: 4880-0568-0589) validates advanced AI competencies. Issued 11 Aug 2025. FEDE-accredited.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Advanced AI Models</li>
+                                        <li>AI Learning Frameworks</li>
+                                        <li>Neural Networks</li>
+                                        <li>Deep Learning Concepts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Blockchain ID: 4880-05...</span>
+                                <a href="https://docs.uniathena.com/prod/course/certificate/897_1754946284_certificate.jpg" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Certificate 14: Graphic Designing with Photoshop -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate14.png" alt="Graphic Designing with Photoshop Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🎨 Graphic Designing with Photoshop</h3>
+                                <p>10 Minute School</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed essential Photoshop skills including fundamentals, image manipulation, color management, blending effects, and mockups for professional graphic design.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Photoshop Fundamentals</li>
+                                        <li>Image Manipulation Techniques</li>
+                                        <li>Color Management & Theory</li>
+                                        <li>Blending Effects & Mockups</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 689b8d...</span>
+                                <a href="https://10minuteschool.com/certificate/689b8df25cff9" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 15: HACCP Food Safety System -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate15.png" alt="HACCP Food Safety Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🍽️ HACCP Food Safety System</h3>
+                                <p>Alison</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Successfully completed comprehensive training in HACCP Food Safety System for Restaurants and Other Catering Services. CPD certified by The CPD Certification Service.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>HACCP Principles & Implementation</li>
+                                        <li>Food Safety Management</li>
+                                        <li>Restaurant Safety Protocols</li>
+                                        <li>Catering Service Standards</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: AEBE-21...</span>
+                                <a href="https://alison.com/shop?course=4882&score=92" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 16: Introduction to Cybersecurity Awareness -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate16.png" alt="Cybersecurity Awareness Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>🔒 Introduction to Cybersecurity Awareness</h3>
+                                <p>HP LIFE</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed comprehensive cybersecurity awareness training, gaining essential knowledge on identifying threats and protecting online data in digital environments.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Threat Identification & Analysis</li>
+                                        <li>Data Protection Strategies</li>
+                                        <li>Cybersecurity Best Practices</li>
+                                        <li>Digital Risk Management</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: 85272e...</span>
+                                <a href="https://www.life-global.org/certificate/85272e94-ffd9-4c0e-9789-db184151e340" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 17: Microsoft Office Starter Course -->
                 <div class="swiper-slide">
                     <div class="certification-card">
                         <img src="Images/Certificate17.png" alt="Microsoft Office Certificate" class="cert-img">
@@ -2779,12 +3404,150 @@
                                     <h4>Skills Learned:</h4>
                                     <ul>
                                         <li>Deep Neural Networks</li>
+                                        <li>Convolutional Neural Networks</li>
+                                        <li>Recurrent Neural Networks</li>
+                                        <li>Advanced AI Algorithms</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Simplilearn Certified</span>
+                                <a href="https://simpli-web.app.link/e/MkV0y2k1VTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 20: Exploratory Data Analysis for Machine Learning -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate20.png" alt="IBM Data Analysis Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>📊 Exploratory Data Analysis for Machine Learning</h3>
+                                <p>IBM & Coursera</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed IBM's comprehensive course gaining hands-on skills in data preprocessing, visualization, and ML-ready analysis techniques for machine learning applications.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Data Preprocessing Techniques</li>
+                                        <li>Statistical Data Visualization</li>
+                                        <li>ML-Ready Data Preparation</li>
+                                        <li>Exploratory Analysis Methods</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: KUVFYX...</span>
+                                <a href="https://www.coursera.org/account/accomplishments/verify/KUVFYXGEM0DJ" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 21: IBM Badge Certification -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate21.png" alt="IBM Badge Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🏆 IBM Professional Certification</h3>
+                                <p>IBM Credly</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Earned IBM professional badge certification demonstrating expertise in enterprise technologies and industry-standard practices for professional development.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Demonstrated:</h4>
+                                    <ul>
+                                        <li>Enterprise Technology Proficiency</li>
+                                        <li>Industry Best Practices</li>
+                                        <li>Professional Development</li>
+                                        <li>Technical Excellence</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Badge ID: be933d...</span>
+                                <a href="https://www.credly.com/badges/be933d24-304c-4516-9bac-3fb5cc04ae50/linked_in_profile" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 22: Google Data Analytics Foundations -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate22.png" alt="Google Data Analytics Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header orange">
+                                <h3>📊 Google Data Analytics Foundations</h3>
+                                <p>Google & Coursera</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed Google's "Foundations: Data, Data, Everywhere" course, gaining core skills in data fundamentals, analysis processes, and data-driven decision-making.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Data Analysis Fundamentals</li>
                                         <li>Data Collection & Processing</li>
                                         <li>Data-Driven Decision Making</li>
                                         <li>Google Analytics Tools</li>
                                     </ul>
                                 </div>
                             </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">ID: OJYLGT...</span>
+                                <a href="https://www.coursera.org/account/accomplishments/records/OJYLGTDNWAFM" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 23: Introduction to Cyber Security -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate23.png" alt="Cybersecurity Introduction Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header purple">
+                                <h3>🔐 Introduction to Cyber Security</h3>
+                                <p>Simplilearn SkillUp</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed foundational cybersecurity training in June 2025, building essential security knowledge and demonstrating initiative and commitment to career advancement.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Cybersecurity Fundamentals</li>
+                                        <li>Threat Assessment & Analysis</li>
+                                        <li>Security Protocols & Standards</li>
+                                        <li>Risk Management Basics</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">SkillUp Certified</span>
+                                <a href="https://simpli-web.app.link/e/I04MGvIHVTb" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certificate 24: Machine Learning (Simplilearn) -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate24.png" alt="Machine Learning Simplilearn Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>🤖 Machine Learning</h3>
+                                <p>Simplilearn SkillUp</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>Completed comprehensive Machine Learning course in June 2025, strengthening core ML concepts through self-paced training and reflecting initiative in career-focused learning.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
                                         <li>Machine Learning Algorithms</li>
                                         <li>Supervised & Unsupervised Learning</li>
                                         <li>Data Preprocessing & Feature Engineering</li>
@@ -2916,6 +3679,35 @@
                     </div>
                 </div>
 
+                <!-- Certificate 30: Computer Training Course -->
+                <div class="swiper-slide">
+                    <div class="certification-card">
+                        <img src="Images/Certificate30.png" alt="Computer Training Certificate" class="cert-img">
+                        <div class="cert-content">
+                            <div class="cert-header green">
+                                <h3>💻 Computer Training Course</h3>
+                                <p>Department of Social Services, Bangladesh</p>
+                            </div>
+                            <div class="cert-details">
+                                <p>This certificate, issued by the Department of Social Services, Bangladesh, recognizes Jablay Noor Rahman's successful completion of a Computer Training course from July to December 2019, earning an A+ grade. Topics included MS Office, Adobe Photoshop, Illustrator, Windows troubleshooting, and basic outsourcing. It is signed by the Course Coordinator and Social Services Officer, issued on October 30, 2020.</p>
+                                <div class="skills-learned">
+                                    <h4>Skills Learned:</h4>
+                                    <ul>
+                                        <li>Microsoft Office Suite Mastery</li>
+                                        <li>Adobe Creative Suite (Photoshop, Illustrator)</li>
+                                        <li>Windows System Troubleshooting</li>
+                                        <li>Basic Outsourcing Concepts</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="cert-footer">
+                                <span class="cert-id">Grade: A+</span>
+                                <a href="https://www.linkedin.com/in/jablay-noor-rahman-a568bb228/details/certifications/1743016520627/single-media-viewer/?profileId=ACoAADkWKyIBltC5T9y9Yr3-AKc1krxhbu5Ufhw" class="cert-link" target="_blank">View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
                 <!-- Certificate 32: Introduction to MUN Workshop -->
                 <div class="swiper-slide">
                     <div class="certification-card">
@@ -3003,303 +3795,41 @@
                     </div>
                 </div>
 
-                <!-- Certificate 36: Python 101 for Data Science -->
+                <!-- Certificate 35: Youth's Voice Certificate of Appreciation -->
                 <div class="swiper-slide">
                     <div class="certification-card">
-                        <img src="Images/Certificate36.png" alt="Python 101 for Data Science Certificate" class="cert-img">
+                        <img src="Images/volunteering1..png" alt="Youth's Voice Certificate" class="cert-img">
                         <div class="cert-content">
-                            <div class="cert-header orange">
-                                <h3>🐍 Python 101 for Data Science</h3>
-                                <p>CognitiveClass.ai & IBM</p>
+                            <div class="cert-header purple">
+                                <h3>🏆 Certificate of Appreciation</h3>
+                                <p>Youth's Voice</p>
                             </div>
                             <div class="cert-details">
-                                <p>Successfully completed Python 101 for Data Science (PY0101EN) course provided by IBM through CognitiveClass.ai. This course is part of the IBM Developer Skills Network and demonstrates proficiency in Python programming fundamentals for data science applications. Certificate issued on September 1, 2025, with QR code verification available.</p>
+                                <p>In recognition of outstanding excellence and superior performance, Youth's Voice has proudly conferred this Certificate of Appreciation upon Jablay Noor Rahman for the distinguished honor of Faculty Appreciated Volunteer. Dated 24/02/2023.</p>
                                 <div class="skills-learned">
-                                    <h4>Skills Learned:</h4>
+                                    <h4>Recognition For:</h4>
                                     <ul>
-                                        <li>Python Programming Fundamentals</li>
-                                        <li>Data Science with Python</li>
-                                        <li>Python Data Structures</li>
-                                        <li>IBM Developer Skills Network Training</li>
+                                        <li>Outstanding Excellence in Youth Empowerment</li>
+                                        <li>Superior Performance as Youth Ambassador</li>
+                                        <li>Faculty Appreciated Volunteer Service</li>
+                                        <li>Community Leadership & Social Impact</li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="cert-footer">
-                                <span class="cert-id">Course: PY0101EN</span>
-                                <a href="https://courses.cognitiveclass.ai/certificates/3be34d0f60dd4fd58c028331fa2864bc" class="cert-link" target="_blank">View</a>
+                                <span class="cert-id">Date: 24/02/2023</span>
+                                <span class="cert-link disabled">Certificate of Appreciation</span>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
             <!-- Navigation buttons -->
             <div class="swiper-button-next"></div>
             <div class="swiper-button-prev"></div>
             <!-- Pagination -->
             <div class="swiper-pagination"></div>
-        </div>
-    </section>
-
-    <!-- Skills Section - Enhanced -->
-    <section id="skills" class="skills-section">
-        <h2 class="section-title">My Skills</h2>
-        <div class="skills-container">
-            <div class="skill-category">
-                <h3>Programming & Development</h3>
-                <div class="skill-items">
-                    <div class="skill-item animate-grow">
-                        <span class="skill-name">Java</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">PHP & MySQL</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">Python</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 78%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
-                            <span class="skill-percentage">78%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow">
-                        <span class="skill-name">JavaScript & React</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">HTML5/CSS3</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%; background: linear-gradient(90deg, #3498db, #2980b9);"></div>
-                            <span class="skill-percentage">95%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Mobile & Systems</h3>
-                <div class="skill-items">
-                    <div class="skill-item animate-grow">
-                        <span class="skill-name">Android Development</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 82%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
-                            <span class="skill-percentage">82%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">Shell Scripting & Linux</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
-                            <span class="skill-percentage">75%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">API Integration</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 83%; background: linear-gradient(90deg, #2ecc71, #27ae60);"></div>
-                            <span class="skill-percentage">83%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="skills-container" style="margin-top: 40px;">
-            <div class="skill-category">
-                <h3>Design & Creative</h3>
-                <div class="skill-items">
-                    <div class="skill-item animate-grow">
-                        <span class="skill-name">Adobe Illustrator</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 88%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
-                            <span class="skill-percentage">88%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">Adobe Photoshop</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">UI/UX Design</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #ff6b6b, #ff8e8e);"></div>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Data Science & AI</h3>
-                <div class="skill-items">
-                    <div class="skill-item animate-grow">
-                        <span class="skill-name">Machine Learning</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 75%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
-                            <span class="skill-percentage">75%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">Data Analytics</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 80%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
-                            <span class="skill-percentage">80%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">Google AI & APIs</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 77%; background: linear-gradient(90deg, #9b59b6, #8e44ad);"></div>
-                            <span class="skill-percentage">77%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="skills-container" style="margin-top: 40px;">
-            <div class="skill-category">
-                <h3>Cloud & Security</h3>
-                <div class="skill-items">
-                    <div class="skill-item animate-grow">
-                        <span class="skill-name">Cloud Computing</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">Cybersecurity</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 87%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
-                            <span class="skill-percentage">87%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">Network Fundamentals</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 82%; background: linear-gradient(90deg, #f39c12, #e67e22);"></div>
-                            <span class="skill-percentage">82%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="skill-category">
-                <h3>Professional Skills</h3>
-                <div class="skill-items">
-                    <div class="skill-item animate-grow">
-                        <span class="skill-name">Communication</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 95%; background: linear-gradient(90deg, #1abc9c, #16a085);"></div>
-                            <span class="skill-percentage">95%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-100">
-                        <span class="skill-name">Leadership</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 90%; background: linear-gradient(90deg, #1abc9c, #16a085);"></div>
-                            <span class="skill-percentage">90%</span>
-                        </div>
-                    </div>
-                    <div class="skill-item animate-grow delay-200">
-                        <span class="skill-name">Project Management</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" style="width: 85%; background: linear-gradient(90deg, #1abc9c, #16a085);"></div>
-                            <span class="skill-percentage">85%</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="skill-category" style="margin-top: 60px;">
-            <h3>Technical Proficiency</h3>
-            <div class="skill-graph-container">
-                <div class="skill-graph">
-                    <h4 class="graph-title">Databases</h4>
-                    <div class="graph-grid">
-                        <div class="graph-item">
-                            <i class="fas fa-database"></i>
-                            <p>MySQL</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fas fa-leaf"></i>
-                            <p>MongoDB</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fas fa-server"></i>
-                            <p>SQL Server</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-graph">
-                    <h4 class="graph-title">Frameworks</h4>
-                    <div class="graph-grid">
-                        <div class="graph-item">
-                            <i class="fab fa-react"></i>
-                            <p>React</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fab fa-node-js"></i>
-                            <p>Node.js</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fab fa-android"></i>
-                            <p>Android SDK</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-graph">
-                    <h4 class="graph-title">Tools</h4>
-                    <div class="graph-grid">
-                        <div class="graph-item">
-                            <i class="fab fa-git-alt"></i>
-                            <p>Git & GitHub</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fab fa-linux"></i>
-                            <p>Linux</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fab fa-google"></i>
-                            <p>Google AI</p>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="skill-graph">
-                    <h4 class="graph-title">Software</h4>
-                    <div class="graph-grid">
-                        <div class="graph-item">
-                            <i class="fas fa-file-excel"></i>
-                            <p>MS Office</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fas fa-cloud"></i>
-                            <p>Cloud Platforms</p>
-                        </div>
-                        <div class="graph-item">
-                            <i class="fas fa-palette"></i>
-                            <p>Adobe Suite</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </section>
 
@@ -3343,7 +3873,7 @@
                 </div>
                 <div class="swiper-slide project-card animate-card delay-300">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project4.jpg" alt="project-img">
+                        <img class="projectimg" src="./Images/project4.jpg" alt="Canvas Painting App">
                         <h3>Canvas Painting App</h3>
                         <p>An Android application that allows users to draw on a digital canvas, select drawing colors (Red, Blue, Yellow, Black), erase, and save their artwork in JPG/PNG format directly to the gallery.</p>
                         <p class="tech-stack">Java • Android SDK • Canvas API</p>
@@ -3354,7 +3884,7 @@
                 </div>
                 <div class="swiper-slide project-card animate-card delay-400">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project5.png" alt="project-img">
+                        <img class="projectimg" src="./Images/project5.png" alt="To-Do List App">
                         <h3>Simple To-Do List Android App</h3>
                         <p>A clean task manager with remaining/completed sections. Users can add tasks and check to complete them. Built with Java in Android Studio using ListView and custom adapters.</p>
                         <p class="tech-stack">Java • Android SDK • ListView</p>
@@ -3365,7 +3895,7 @@
                 </div>
                 <div class="swiper-slide project-card animate-card delay-500">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project6.png" alt="project-img">
+                        <img class="projectimg" src="./Images/project6.png" alt="Smoke Detector System">
                         <h3>Automatic Smoke Detector and Fire Prevention System</h3>
                         <p>A system that detects smoke and triggers preventive actions, such as opening doors, activating sprinklers, and shutting down electrical systems to prevent fire disasters.</p>
                         <p class="tech-stack">Embedded Systems • IoT • Sensors</p>
@@ -3376,7 +3906,7 @@
                 </div>
                 <div class="swiper-slide project-card animate-card delay-600">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project7.png" alt="project-img">
+                        <img class="projectimg" src="./Images/project7.png" alt="Parking Management System">
                         <h3>Parking Management System</h3>
                         <p>A Java-based parking management system that allows users to reserve spots, check in/out vehicles, and track availability. Features OOP principles and file I/O for data storage.</p>
                         <p class="tech-stack">Java • OOP • File I/O</p>
@@ -3387,7 +3917,7 @@
                 </div>
                 <div class="swiper-slide project-card animate-card delay-700">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project8.png" alt="project-img">
+                        <img class="projectimg" src="./Images/project8.png" alt="Aldenaire Fitness App">
                         <h3>Aldenaire Fitness App</h3>
                         <p>A 30-second interval timer with voice guidance for weight loss, belly fat, and weight gain workouts. Features exercise selection, TTS announcements, and a clean UI. Built with Java and Android Studio. Perfect for quick home exercises!</p>
                         <p class="tech-stack">Java • Android SDK • TTS</p>
@@ -3398,7 +3928,7 @@
                 </div>
                 <div class="swiper-slide project-card animate-card delay-800">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project9.jpg" alt="project-img">
+                        <img class="projectimg" src="./Images/project9.jpg" alt="Translator App">
                         <h3>Translator App</h3>
                         <p>A speech-to-text translator built with MIT App Inventor. Supports 20+ languages (Spanish, Hindi, Bangla, French, Japanese, etc.). Tap-to-talk, instant API translation, and clean UI. Ideal for travelers and learners.</p>
                         <p class="tech-stack">MIT APP INVENTOR • API Integration</p>
@@ -3409,7 +3939,7 @@
                 </div>  
                  <div class="swiper-slide project-card animate-card delay-800">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project10.png" alt="project-img">
+                        <img class="projectimg" src="./Images/project10.png" alt="Horizon Homes Real Estate Platform">
                         <h3>Horizon Homes: Smart Property Discovery & Management Platform</h3>
                         <p>An innovative full-stack MERN web application designed to streamline real estate transactions. Features secure user authentication, role-based access control, online booking system with payment integration, mortgage calculator, and neighborhood insights. Supports visitors, agents, and admin roles with real-time property management.</p>
                         <p class="tech-stack">MongoDB • Express.js • React • Node.js • JWT • Payment Integration</p>
@@ -3420,56 +3950,12 @@
                 </div>
                 <div class="swiper-slide project-card animate-card delay-800">
                     <div class="project-content">
-                        <img class="projectimg" src="./Images/project11.png" alt="project-img">
+                        <img class="projectimg" src="./Images/project11.png" alt="BUPBuddy AI Assistant Chatbot">
                         <h3>BUPBuddy: AI Assistant for Bangladesh University of Professionals</h3>
                         <p>A comprehensive web-based AI assistant powered by Google's Gemini AI, designed to provide 24/7 support for BUP students, faculty, and prospective applicants. Features multilingual support (English/Bengali), document processing, voice interactions, conversation history, and quick actions for common queries about academics, admissions, and campus life.</p>
                         <p class="tech-stack">Google Gemini AI • Speech Recognition API • HTML • CSS • JavaScript • Responsive Design</p>
                         <div class="project-links">
                             <a href="https://github.com/omijr123/BUPBuddy_AI-Assistant-Chatbot.git" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide project-card animate-card delay-900">
-                    <div class="project-content">
-                        <img class="projectimg" src="./Images/project12.png" alt="project-img">
-                        <h3>StudyBuddy: Smart Learning Campus Management Portal</h3>
-                        <p>A campus management portal to support student learning, course management, assignments, and analytics—built to simplify administrative workflows and enhance collaboration.</p>
-                        <p class="tech-stack">Django • Python • HTML • CSS • JavaScript</p>
-                        <div class="project-links">
-                            <a href="https://github.com/omijr123/StudyBuddy-Smart-Learning-Campus-Management-Portal.git" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide project-card animate-card delay-1000">
-                    <div class="project-content">
-                        <img class="projectimg" src="./Images/project13.png" alt="project-img">
-                        <h3>AI Art Generator</h3>
-                        <p>An AI-powered creative tool that generates unique artwork from text prompts using generative models and a user-friendly web interface.</p>
-                        <p class="tech-stack">Python • Flask • TensorFlow • HTML • CSS • JavaScript</p>
-                        <div class="project-links">
-                            <a href="https://github.com/omijr123/AI-Art-Generator.git" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide project-card animate-card delay-1100">
-                    <div class="project-content">
-                        <img class="projectimg" src="./Images/project14.png" alt="project-img">
-                        <h3>Bangladeshi Snacks Classifier</h3>
-                        <p>A computer vision classifier trained to categorize Bangladeshi snacks, chips, and biscuits from images—useful for inventory and recommendation systems.</p>
-                        <p class="tech-stack">Python • PyTorch • OpenCV • Computer Vision</p>
-                        <div class="project-links">
-                            <a href="https://github.com/omijr123/BangladeshiSnacksChipsBiscuitsImageClassifier.git" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="swiper-slide project-card animate-card delay-1200">
-                    <div class="project-content">
-                        <img class="projectimg" src="./Images/project15.png" alt="project-img">
-                        <h3>Bangladeshi Cosmetic Products Classifier</h3>
-                        <p>An image classification model to identify and categorize local cosmetic products—helpful for e-commerce tagging and visual search features.</p>
-                        <p class="tech-stack">Python • TensorFlow • Keras • Image Classification</p>
-                        <div class="project-links">
-                            <a href="https://github.com/omijr123/BangladeshiCosmeticProductsImageClassifier.git" class="project-link" target="_blank">View Project <i class="fas fa-external-link-alt"></i></a>
                         </div>
                     </div>
                 </div>
@@ -3479,6 +3965,117 @@
             <div class="swiper-button-prev"></div>
             <!-- Pagination -->
             <div class="swiper-pagination"></div>
+        </div>
+    </section>
+
+    <!-- Volunteering Section -->
+    <section id="volunteering" class="volunteering-section">
+        <h2 class="section-title">Volunteering Experience</h2>
+        <div class="volunteering-container">
+            <div class="volunteering-intro">
+                <p>I am passionate about giving back to the community and have actively participated in various volunteer organizations that focus on youth empowerment, education, human rights, and social welfare.</p>
+            </div>
+            
+            <div class="volunteering-grid">
+                <!-- Organization 1: Youth's Voice -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>  Youth's Voice</h3>
+                        <span class="volunteer-type">Youth Empowerment</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Youth Ambassador & Content Creator</p>
+                        <p><strong>Duration:</strong> 2021 - 2023</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Organized youth leadership workshops and seminars</li>
+                            <li>Created digital content for youth awareness campaigns</li>
+                            <li>Facilitated peer-to-peer mentoring programs</li>
+                            <li>Coordinated community outreach events for young people</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Empowered over 300 young individuals through leadership programs and reached 2000+ youth through digital campaigns.</p>
+                    </div>
+                </div>
+
+                <!-- Organization 2: Protyush -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>🌅 Protyush</h3>
+                        <span class="volunteer-type">Education & Development</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Education Volunteer & Program Coordinator</p>
+                        <p><strong>Duration:</strong> 2020 - 2022</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Conducted free tutoring sessions for underprivileged students</li>
+                            <li>Organized skill development workshops for youth</li>
+                            <li>Coordinated educational material distribution drives</li>
+                            <li>Mentored students for higher education opportunities</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Provided educational support to 200+ students and helped 50+ students access scholarship opportunities.</p>
+                    </div>
+                </div>
+
+                <!-- Organization 3: Amnesty International -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>⚖️ Amnesty International</h3>
+                        <span class="volunteer-type">Human Rights</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Human Rights Advocate & Researcher</p>
+                        <p><strong>Duration:</strong> 2019 - 2021</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Conducted research on human rights violations</li>
+                            <li>Organized awareness campaigns for social justice issues</li>
+                            <li>Participated in peaceful protests and advocacy events</li>
+                            <li>Facilitated human rights education workshops</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Contributed to 10+ research reports and engaged 500+ community members in human rights awareness initiatives.</p>
+                    </div>
+                </div>
+
+                <!-- Organization 4: Bidyanondo Foundation -->
+                <div class="volunteer-card">
+                    <div class="volunteer-header">
+                        <h3>📚 Bidyanondo Foundation</h3>
+                        <span class="volunteer-type">Education & Social Welfare</span>
+                    </div>
+                    <div class="volunteer-content">
+                        <p><strong>Role:</strong> Education Volunteer & Community Organizer</p>
+                        <p><strong>Duration:</strong> 2018 - 2020</p>
+                        <p><strong>Activities:</strong></p>
+                        <ul>
+                            <li>Organized and conducted free educational workshops for street children</li>
+                            <li>Distributed educational materials and school supplies</li>
+                            <li>Coordinated food distribution programs for underprivileged families</li>
+                            <li>Assisted in healthcare awareness campaigns</li>
+                        </ul>
+                        <p><strong>Impact:</strong> Provided educational support to over 400 underprivileged children and helped distribute essential supplies to 1000+ families.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="volunteering-stats">
+                <div class="stat-item">
+                    <h4>4</h4>
+                    <p>Organizations</p>
+                </div>
+                <div class="stat-item">
+                    <h4>1400+</h4>
+                    <p>People Helped</p>
+                </div>
+                <div class="stat-item">
+                    <h4>25+</h4>
+                    <p>Events Organized</p>
+                </div>
+                <div class="stat-item">
+                    <h4>5</h4>
+                    <p>Years Experience</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -3668,7 +4265,7 @@
 
             // Add scroll animations for cards
             const animateCards = () => {
-                const cards = document.querySelectorAll('.education-card, .skill-graph');
+                const cards = document.querySelectorAll('.job-card, .education-card, .skill-graph, .volunteer-card');
                 const cardObserver = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
